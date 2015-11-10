@@ -234,6 +234,7 @@
 <thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Required</th>
 <th>Default</th>
 <th>Description</th>
@@ -242,60 +243,70 @@
 <tbody>
 <tr>
 <td>view</td>
+<td>sublime.View</td>
 <td>Yes</td>
 <td></td>
 <td>A Sublime Text view object.</td>
 </tr>
 <tr>
 <td>content</td>
+<td>string</td>
 <td>Yes</td>
 <td></td>
 <td>Markdown/HTML content to be used to create a tooltip.</td>
 </tr>
 <tr>
 <td>md</td>
+<td>bool</td>
 <td>No</td>
 <td>True</td>
 <td>Defines whether the content is Markdown and needs to be converterted.</td>
 </tr>
 <tr>
 <td>css</td>
+<td>string</td>
 <td>No</td>
 <td>None</td>
 <td>Additional CSS that will be injected.</td>
 </tr>
 <tr>
 <td>flags</td>
+<td>int</td>
 <td>No</td>
 <td>0</td>
 <td>Flags to pass down to the Sublime Text <code>view.show_popup</code>call.</td>
 </tr>
 <tr>
 <td>location</td>
+<td>int</td>
 <td>No</td>
 <td>-1</td>
 <td>Location to show popup in view.  -1 means to show right under the first cursor.</td>
 </tr>
 <tr>
 <td>max_width</td>
+<td>int</td>
 <td>No</td>
 <td>320</td>
 <td>Maximum width of the popup.</td>
 </tr>
 <tr>
 <td>max_height</td>
+<td>int</td>
 <td>No</td>
 <td>240</td>
 <td>Maximum height of the popup.</td>
 </tr>
 <tr>
 <td>on_navigate</td>
+<td>function</td>
 <td>No</td>
 <td>None</td>
 <td>Callback that receives one variable <code>href</code></td>
 </tr>
 <tr>
 <td>on_hide</td>
+<td>function</td>
 <td>No</td>
 <td>None</td>
 <td>Callback for when teh tooltip is hidden.</td>
@@ -313,6 +324,7 @@
 <thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Required</th>
 <th>Default</th>
 <th>Description</th>
@@ -321,24 +333,28 @@
 <tbody>
 <tr>
 <td>view</td>
+<td>sublime.View</td>
 <td>Yes</td>
 <td></td>
 <td>A Sublime Text view object.</td>
 </tr>
 <tr>
 <td>content</td>
+<td>string</td>
 <td>Yes</td>
 <td></td>
 <td>Markdown/HTML content to be used to create a tooltip.</td>
 </tr>
 <tr>
 <td>md</td>
+<td>bool</td>
 <td>No</td>
 <td>True</td>
 <td>Defines whether the content is Markdown and needs to be converterted.</td>
 </tr>
 <tr>
 <td>css</td>
+<td>string</td>
 <td>No</td>
 <td>None</td>
 <td>CSS text that should be used instead of loading a theme.</td>
@@ -356,6 +372,7 @@
 <thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Required</th>
 <th>Default</th>
 <th>Description</th>
@@ -364,6 +381,7 @@
 <tbody>
 <tr>
 <td>view</td>
+<td>sublime.View</td>
 <td>Yes</td>
 <td></td>
 <td>A Sublime Text view object.</td>
@@ -381,11 +399,12 @@
 <dl>
 <dt>mdpopups.md2html</dt>
 <dd>
-<p>Exposes the Markdown to HTML converter in case it is desired to parse only a section of markdown.  This works well for someone who wants to work directly in HTML, but might want to still syntax highlight some code to insert into the HTML. Code highlighting will use either Pygments or the native Sublime syntax highlighter; this is controlled by <a href="#mdpopups_use_sublime_highlighter"><code>mdpopups_use_sublime_highlighter</code></a>.</p>
+<p>Exposes the Markdown to HTML converter in case it is desired to parse only a section of markdown.  This works well for someone who wants to work directly in HTML, but might want to still have fragments of markdown that they would like to occasionally convert. Code highlighting will use either Pygments or the native Sublime syntax highlighter; this is controlled by <a href="#mdpopups_use_sublime_highlighter"><code>mdpopups_use_sublime_highlighter</code></a>.</p>
 <table>
 <thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Required</th>
 <th>Default</th>
 <th>Description</th>
@@ -394,12 +413,14 @@
 <tbody>
 <tr>
 <td>view</td>
+<td>sublime.View</td>
 <td>Yes</td>
 <td></td>
 <td>Sublime text View object.</td>
 </tr>
 <tr>
 <td>markup</td>
+<td>bool</td>
 <td>Yes</td>
 <td></td>
 <td>The markup code to be converted.</td>
@@ -417,6 +438,7 @@
 <thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Required</th>
 <th>Default</th>
 <th>Description</th>
@@ -425,24 +447,28 @@
 <tbody>
 <tr>
 <td>view</td>
+<td>sublime.View</td>
 <td>Yes</td>
 <td></td>
 <td>Sublime text View object.</td>
 </tr>
 <tr>
 <td>markup</td>
+<td>bool</td>
 <td>Yes</td>
 <td></td>
 <td>The markup code to be converted.</td>
 </tr>
 <tr>
 <td>language</td>
+<td>string</td>
 <td>No</td>
 <td>None</td>
 <td>Specifies the language to highlight as.</td>
 </tr>
 <tr>
 <td>inline</td>
+<td>bool</td>
 <td>No</td>
 <td>False</td>
 <td>Will return the code formatted for inline display.</td>
@@ -622,6 +648,12 @@
 
 <p>Would then only include the color:</p>
 <div class="codehilite"><pre><span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#888888</span> <span class="p">}</span>
+</pre></div>
+
+
+<p>Some scopes might not be have colors assigned to them in a them, so multiple scopes can be defined, and the first one that matches will be used:</p>
+<div class="codehilite"><pre><span class="c">/* If `keyword.operator` is not explicitly used, fallback to `.keyword` */</span>
+<span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.keyword.operator, .keyword&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;color&#39;</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
 </pre></div>
 
 
