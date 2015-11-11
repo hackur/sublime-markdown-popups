@@ -84,6 +84,8 @@
                 
                     <li><a class="toctree-l4" href="#md2html">md2html</a></li>
                 
+                    <li><a class="toctree-l4" href="#color_box">color_box</a></li>
+                
                     <li><a class="toctree-l4" href="#syntax_highlight">syntax_highlight</a></li>
                 
             
@@ -315,6 +317,19 @@
 </table>
 </dd>
 </dl>
+<div class="admonition caution">
+<p class="admonition-title">Developers Guidelines</p>
+<p>If injecting your own CSS class from a plugin, please namespace them by either giving them a very unique name (preferably with the plugin&rsquo;s name as part of the class) or use an additional namespace class (preferably with the plugin&rsquo;s name) and a specific class.  This way a user can target and override your class styling if desired.</p>
+<p><strong>Example - Unique Class Name</strong>:<br />
+<div class="codehilite"><pre><span class="nc">.myplugin-myclass</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+</pre></div>
+</p>
+<p><strong>Example - Namespace Class</strong>:<br />
+<div class="codehilite"><pre><span class="nc">.myplugin.myclass</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+</pre></div>
+</p>
+<p>Also, do not try to override the style of existing base classes and elements with plugin injection, but use custom plugin classes so that you will only target what your plugin as specifically added special classes to.</p>
+</div>
 <h2 id="update_popup"><a name="user-content-update_popup" href="#update_popup" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>update_popup</h2>
 <dl>
 <dt>mdpopups.update_popup</dt>
@@ -424,6 +439,82 @@
 <td>Yes</td>
 <td></td>
 <td>The markup code to be converted.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<h2 id="color_box"><a name="user-content-color_box" href="#color_box" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>color_box</h2>
+<dl>
+<dt>mdpopups.color_box</dt>
+<dd>
+<p>Generates a color preview box image encoded in base64 and formated to be inserted right in your your Markdown or HTML code as an <code>img</code> tag.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>colors</td>
+<td>[string]</td>
+<td>Yes</td>
+<td></td>
+<td>A list of color strings formatted as <code>#RRGGBBAA</code>where <code>R</code>is the red channel, <code>G</code>is the green channel, <code>B</code>is the blue channel, and <code>A</code>is the alpha channel.</td>
+</tr>
+<tr>
+<td>border</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>The color for the color box border.  Input is a RGB color formatted as <code>#RRGGBB</code></td>
+</tr>
+<tr>
+<td>border2</td>
+<td>string</td>
+<td>No</td>
+<td>None</td>
+<td>The optional secondary border color.  This is great if you are going to have it on a light and dark backgrounds.  You can use a double border so the color stands out regardless of the background.  Input is a RGB color formatted as <code>#RRGGBB</code></td>
+</tr>
+<tr>
+<td>height</td>
+<td>int</td>
+<td>No</td>
+<td>32</td>
+<td>Height of color box.</td>
+</tr>
+<tr>
+<td>width</td>
+<td>int</td>
+<td>No</td>
+<td>32</td>
+<td>Width of color box.</td>
+</tr>
+<tr>
+<td>border_size</td>
+<td>int</td>
+<td>No</td>
+<td>1</td>
+<td>Width of the color box border.  If using <code>border2</code> the value should be set to at least 2 to see both colors.</td>
+</tr>
+<tr>
+<td>check_size</td>
+<td>int</td>
+<td>No</td>
+<td>4</td>
+<td>Size of checkered box squares used for the background of transparent colors.</td>
+</tr>
+<tr>
+<td>max_colors</td>
+<td>int</td>
+<td>No</td>
+<td>5</td>
+<td>Max number of colors that will be evaluated in the <code>colors</code>parameter.  Multiple colors are used to to create palette boxes showing multiple colors lined up horizontally.</td>
 </tr>
 </tbody>
 </table>
