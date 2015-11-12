@@ -231,7 +231,7 @@
 <dl>
 <dt>mdpopups.show_popup</dt>
 <dd>
-<p>Accepts Markdown and creates a Sublime popup tooltip.</p>
+<p>Accepts Markdown and creates a Sublime popup tooltip.  By default, the Pygments syntax highlighter will be used for code highlighting.  Set <a href="#mdpopups_use_sublime_highlighter"><code>mdpopups_use_sublime_highlighter</code></a> to <code>true</code> in your <code>Preferences.sublime-settings</code> file if you would like to use the Sublime syntax highlighter.</p>
 <table>
 <thead>
 <tr>
@@ -311,7 +311,7 @@
 <td>function</td>
 <td>No</td>
 <td>None</td>
-<td>Callback for when teh tooltip is hidden.</td>
+<td>Callback for when the tooltip is hidden.</td>
 </tr>
 </tbody>
 </table>
@@ -334,7 +334,7 @@
 <dl>
 <dt>mdpopups.update_popup</dt>
 <dd>
-<p>Updates the current existing popup.</p>
+<p>Updates the current existing popup.  Set <a href="#mdpopups_use_sublime_highlighter"><code>mdpopups_use_sublime_highlighter</code></a> to <code>true</code> in your <code>Preferences.sublime-settings</code> file if you would like to use the Sublime syntax highlighter.</p>
 <table>
 <thead>
 <tr>
@@ -414,7 +414,7 @@
 <dl>
 <dt>mdpopups.md2html</dt>
 <dd>
-<p>Exposes the Markdown to HTML converter in case it is desired to parse only a section of markdown.  This works well for someone who wants to work directly in HTML, but might want to still have fragments of markdown that they would like to occasionally convert. Code highlighting will use either Pygments or the native Sublime syntax highlighter; this is controlled by <a href="#mdpopups_use_sublime_highlighter"><code>mdpopups_use_sublime_highlighter</code></a>.</p>
+<p>Exposes the Markdown to HTML converter in case it is desired to parse only a section of markdown.  This works well for someone who wants to work directly in HTML, but might want to still have fragments of markdown that they would like to occasionally convert. Code highlighting will use either Pygments or the native Sublime syntax highlighter.  Set <a href="#mdpopups_use_sublime_highlighter"><code>mdpopups_use_sublime_highlighter</code></a> to <code>true</code> if you want to use the Sublime syntax highlighter.</p>
 <table>
 <thead>
 <tr>
@@ -524,7 +524,7 @@
 <dl>
 <dt>mdpopups.syntax_highlight</dt>
 <dd>
-<p>Allows for syntax highlighting outside the Markdown environment.  You can just feed it code directly and give it the language of choice, and you will be returned a block of HTML that has been syntax highlighted.  <code>syntax_highlight</code> will use either Pygments or the native Sublime syntax highlighter; this is controlled by <a href="#mdpopups_use_sublime_highlighter"><code>mdpopups_use_sublime_highlighter</code></a>.</p>
+<p>Allows for syntax highlighting outside the Markdown environment.  You can just feed it code directly and give it the language of your choice, and you will be returned a block of HTML that has been syntax highlighted.  <code>syntax_highlight</code> will use either Pygments or the native Sublime syntax highlighter.  Set <a href="#mdpopups_use_sublime_highlighter"><code>mdpopups_use_sublime_highlighter</code></a> to <code>true</code> if you want to use the Sublime syntax highlighter.</p>
 <table>
 <thead>
 <tr>
@@ -596,8 +596,16 @@
 
 <h2 id="mdpopups_use_sublime_highlighter"><a name="user-content-mdpopups_use_sublime_highlighter" href="#mdpopups_use_sublime_highlighter" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups_use_sublime_highlighter</h2>
 <p>Controls whether the Pygments or the native Sublime syntax highlighter is used for code highlighting.  This affects code highlighting in Markdown conversion] via and when <a href="#md2html">md2html</a> and when code is directly processed using <a href="#syntax_highlight">syntax_highlight</a>. To learn more about the syntax highlighter see <a href="#syntax-highlighting">Syntax Highlighting</a>.</p>
+<div class="codehilite"><pre>    <span class="s2">&quot;mdpopups_use_sublime_highlighter&quot;</span><span class="o">:</span> <span class="kc">true</span>
+</pre></div>
+
+
 <h2 id="mdpopups_user_css"><a name="user-content-mdpopups_user_css" href="#mdpopups_user_css" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups_user_css</h2>
 <p>Overrides the default CSS theme.  Value should be a relative path pointing to the CSS theme file: <code>Packages/User/my_custom_theme.css</code>.  Slashes should be forward slashes. By default, it will point to <code>Packages/User/mdpopups.css</code>.</p>
+<div class="codehilite"><pre>    <span class="s2">&quot;mdpopups_use_sublime_highlighter&quot;</span><span class="o">:</span> <span class="s2">&quot;Packages/User/mdpopups.css&quot;</span>
+</pre></div>
+
+
 <h2 id="mdpopups_sublime_user_lang_map"><a name="user-content-mdpopups_sublime_user_lang_map" href="#mdpopups_sublime_user_lang_map" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups_sublime_user_lang_map</h2>
 <p>This is a special setting allowing the mapping of personal syntax languages which are not yet included or will not be included in the official mapping table.  You can either define your own new entry, or use the name of an existing entry to extend language keywords or syntax languages.  When extending, user keywords and languages will be cycled through first.</p>
 <div class="codehilite"><pre>    <span class="s1">&#39;mdpopups_sublime_user_lang_map&#39;</span><span class="o">:</span> <span class="p">{</span>
@@ -750,7 +758,7 @@
 
 </dd>
 </dl>
-<p>If desired you can convert a foreground color to a background color or vice versa.  To convert to a foreground color, you can use the <code>foreground</code> filter.  To convert to a background color, you can use tuse the <code>background</code> filter.</p>
+<p>If desired you can convert a foreground color to a background color or vice versa.  To convert to a foreground color, you can use the <code>foreground</code> filter.  To convert to a background color, you can use the <code>background</code> filter.</p>
 <dl>
 <dt>foreground</dt>
 <dd>
