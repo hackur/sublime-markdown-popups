@@ -65,64 +65,25 @@
             
                 <li class="toctree-l3"><a href="#user-guide">User Guide</a></li>
                 
-            
-                <li class="toctree-l3"><a href="#dependencies">Dependencies</a></li>
+                    <li><a class="toctree-l4" href="#dependencies">Dependencies</a></li>
                 
-            
-                <li class="toctree-l3"><a href="#markdown-support">Markdown Support</a></li>
+                    <li><a class="toctree-l4" href="#markdown-support">Markdown Support</a></li>
                 
-            
-                <li class="toctree-l3"><a href="#api-usage">API Usage</a></li>
-                
-                    <li><a class="toctree-l4" href="#show_popup">show_popup</a></li>
+                    <li><a class="toctree-l4" href="#api-usage">API Usage</a></li>
                 
                     <li><a class="toctree-l4" href="#update_popup">update_popup</a></li>
                 
-                    <li><a class="toctree-l4" href="#hide_popup">hide_popup</a></li>
-                
-                    <li><a class="toctree-l4" href="#clear_cache">clear_cache</a></li>
-                
-                    <li><a class="toctree-l4" href="#md2html">md2html</a></li>
-                
-                    <li><a class="toctree-l4" href="#color_box">color_box</a></li>
-                
-                    <li><a class="toctree-l4" href="#syntax_highlight">syntax_highlight</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#global-user-settings">Global User Settings</a></li>
-                
-                    <li><a class="toctree-l4" href="#mdpopups_debug">mdpopups_debug</a></li>
-                
-                    <li><a class="toctree-l4" href="#mdpopups_disable">mdpopups_disable</a></li>
-                
-                    <li><a class="toctree-l4" href="#mdpopups_cache_refresh_time">mdpopups_cache_refresh_time</a></li>
-                
-                    <li><a class="toctree-l4" href="#mdpopups_cache_limit">mdpopups_cache_limit</a></li>
-                
-                    <li><a class="toctree-l4" href="#mdpopups_use_sublime_highlighter">mdpopups_use_sublime_highlighter</a></li>
+                    <li><a class="toctree-l4" href="#global-user-settings">Global User Settings</a></li>
                 
                     <li><a class="toctree-l4" href="#mdpopups_user_css">mdpopups_user_css</a></li>
                 
                     <li><a class="toctree-l4" href="#mdpopups_sublime_user_lang_map">mdpopups_sublime_user_lang_map</a></li>
                 
-            
-                <li class="toctree-l3"><a href="#syntax-highlighting">Syntax Highlighting</a></li>
+                    <li><a class="toctree-l4" href="#syntax-highlighting">Syntax Highlighting</a></li>
                 
-                    <li><a class="toctree-l4" href="#pygments">Pygments</a></li>
+                    <li><a class="toctree-l4" href="#css-styling">CSS Styling</a></li>
                 
-                    <li><a class="toctree-l4" href="#sublime-syntax-highlighter">Sublime Syntax Highlighter</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#css-styling">CSS Styling</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#css-templates">CSS Templates</a></li>
-                
-                    <li><a class="toctree-l4" href="#template-colors">Template Colors</a></li>
-                
-                    <li><a class="toctree-l4" href="#template-color-filtering">Template Color Filtering</a></li>
-                
-                    <li><a class="toctree-l4" href="#include-css">Include CSS</a></li>
+                    <li><a class="toctree-l4" href="#css-templates">CSS Templates</a></li>
                 
                     <li><a class="toctree-l4" href="#template-variables">Template Variables</a></li>
                 
@@ -192,7 +153,7 @@
                 <h1 class="doctitle" id="user-guide"><a name="user-content-user-guide" href="#user-guide" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>User Guide</h1>
 <p>Using and configuring Sublime Markdown Popups.</p>
 <hr />
-<h1 id="dependencies"><a name="user-content-dependencies" href="#dependencies" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Dependencies</h1>
+<h2 id="dependencies"><a name="user-content-dependencies" href="#dependencies" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Dependencies</h2>
 <p>Your plugin must include the following Package Control dependencies:</p>
 <div class="codehilite"><pre><span class="p">{</span>
     <span class="s2">&quot;*&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -208,7 +169,7 @@
 </pre></div>
 
 
-<h1 id="markdown-support"><a name="user-content-markdown-support" href="#markdown-support" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Markdown Support</h1>
+<h2 id="markdown-support"><a name="user-content-markdown-support" href="#markdown-support" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Markdown Support</h2>
 <p>MdPopups uses <a href="https://pythonhosted.org/Markdown/">Python Markdown</a> to parse Markdown and transform it into a tooltip.  The Markdown environment supports basic Markdown features, but also includes a number of specialty extensions to enhance the environment.  To keep the experience standardized for plugin use, tweaking the Markdown settings is not allowed.</p>
 <p>MdPopups enables the following Python Markdown extensions:</p>
 <ul>
@@ -225,9 +186,9 @@
 <li><a href="http://facelessuser.github.io/pymdown-extensions/extensions/magiclink/">magiclink</a> auto links HTML links.</li>
 <li><a href="http://facelessuser.github.io/pymdown-extensions/extensions/inlinehilite/">inlinehilite</a> allows for inline code highlighting: <code>`#!python import module`</code> &rarr; <code class="codehilite"><span class="kn">import</span> <span class="nn">module</span></code>.</li>
 </ul>
-<h1 id="api-usage"><a name="user-content-api-usage" href="#api-usage" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>API Usage</h1>
+<h2 id="api-usage"><a name="user-content-api-usage" href="#api-usage" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>API Usage</h2>
 <p>MdPopups provides a handful of accessible functions.</p>
-<h2 id="show_popup"><a name="user-content-show_popup" href="#show_popup" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>show_popup</h2>
+<h3 id="show_popup"><a name="user-content-show_popup" href="#show_popup" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>show_popup</h3>
 <dl>
 <dt>mdpopups.show_popup</dt>
 <dd>
@@ -378,7 +339,7 @@
 </table>
 </dd>
 </dl>
-<h2 id="hide_popup"><a name="user-content-hide_popup" href="#hide_popup" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>hide_popup</h2>
+<h3 id="hide_popup"><a name="user-content-hide_popup" href="#hide_popup" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>hide_popup</h3>
 <dl>
 <dt>mdpopups.hide_popup</dt>
 <dd>
@@ -405,12 +366,12 @@
 </table>
 </dd>
 </dl>
-<h2 id="clear_cache"><a name="user-content-clear_cache" href="#clear_cache" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>clear_cache</h2>
+<h3 id="clear_cache"><a name="user-content-clear_cache" href="#clear_cache" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>clear_cache</h3>
 <dl>
 <dt>mdpopups.clear_cache</dt>
 <dd>Clears the CSS theme related caches.</dd>
 </dl>
-<h2 id="md2html"><a name="user-content-md2html" href="#md2html" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>md2html</h2>
+<h3 id="md2html"><a name="user-content-md2html" href="#md2html" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>md2html</h3>
 <dl>
 <dt>mdpopups.md2html</dt>
 <dd>
@@ -444,7 +405,7 @@
 </table>
 </dd>
 </dl>
-<h2 id="color_box"><a name="user-content-color_box" href="#color_box" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>color_box</h2>
+<h3 id="color_box"><a name="user-content-color_box" href="#color_box" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>color_box</h3>
 <dl>
 <dt>mdpopups.color_box</dt>
 <dd>
@@ -520,7 +481,7 @@
 </table>
 </dd>
 </dl>
-<h2 id="syntax_highlight"><a name="user-content-syntax_highlight" href="#syntax_highlight" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>syntax_highlight</h2>
+<h3 id="syntax_highlight"><a name="user-content-syntax_highlight" href="#syntax_highlight" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>syntax_highlight</h3>
 <dl>
 <dt>mdpopups.syntax_highlight</dt>
 <dd>
@@ -568,33 +529,33 @@
 </table>
 </dd>
 </dl>
-<h1 id="global-user-settings"><a name="user-content-global-user-settings" href="#global-user-settings" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Global User Settings</h1>
+<h2 id="global-user-settings"><a name="user-content-global-user-settings" href="#global-user-settings" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Global User Settings</h2>
 <p>All settings for MdPopups<code>are placed in Sublime's</code>Preferences.sublime-settings`.  They are global and work no for whatever plugin uses the MdPopups API.</p>
-<h2 id="mdpopups_debug"><a name="user-content-mdpopups_debug" href="#mdpopups_debug" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups_debug</h2>
+<h3 id="mdpopups_debug"><a name="user-content-mdpopups_debug" href="#mdpopups_debug" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups_debug</h3>
 <p>Turns on debug mode.  This will dump out all sorts of info to the console.  Such as content before parsing to HTML, final HTML output, etc.  This is more useful for plugin developers.</p>
 <div class="codehilite"><pre>    <span class="s2">&quot;mdpopups_debug&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
 </pre></div>
 
 
-<h2 id="mdpopups_disable"><a name="user-content-mdpopups_disable" href="#mdpopups_disable" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups_disable</h2>
+<h3 id="mdpopups_disable"><a name="user-content-mdpopups_disable" href="#mdpopups_disable" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups_disable</h3>
 <p>Global kill switch to prevent popups (created by MdPopups) from appearing.</p>
 <div class="codehilite"><pre>    <span class="s2">&quot;mdpopups_disable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
 </pre></div>
 
 
-<h2 id="mdpopups_cache_refresh_time"><a name="user-content-mdpopups_cache_refresh_time" href="#mdpopups_cache_refresh_time" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups_cache_refresh_time</h2>
+<h3 id="mdpopups_cache_refresh_time"><a name="user-content-mdpopups_cache_refresh_time" href="#mdpopups_cache_refresh_time" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups_cache_refresh_time</h3>
 <p>Control how long a CSS theme file will be in the cache before being refreshed.  Value should be a positive integer greater than 0.  Units are in minutes.  Default is 30.</p>
 <div class="codehilite"><pre>    <span class="s2">&quot;mdpopups_cache_refresh_time&quot;</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
 </pre></div>
 
 
-<h2 id="mdpopups_cache_limit"><a name="user-content-mdpopups_cache_limit" href="#mdpopups_cache_limit" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups_cache_limit</h2>
+<h3 id="mdpopups_cache_limit"><a name="user-content-mdpopups_cache_limit" href="#mdpopups_cache_limit" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups_cache_limit</h3>
 <p>Control how many CSS theme files will be kept in cache at any given time.  Value should be a positive integer greater than or equal to 0.</p>
 <div class="codehilite"><pre>    <span class="s2">&quot;mdpopups_cache_limit&quot;</span><span class="o">:</span> <span class="mi">10</span>
 </pre></div>
 
 
-<h2 id="mdpopups_use_sublime_highlighter"><a name="user-content-mdpopups_use_sublime_highlighter" href="#mdpopups_use_sublime_highlighter" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups_use_sublime_highlighter</h2>
+<h3 id="mdpopups_use_sublime_highlighter"><a name="user-content-mdpopups_use_sublime_highlighter" href="#mdpopups_use_sublime_highlighter" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups_use_sublime_highlighter</h3>
 <p>Controls whether the Pygments or the native Sublime syntax highlighter is used for code highlighting.  This affects code highlighting in Markdown conversion] via and when <a href="#md2html">md2html</a> and when code is directly processed using <a href="#syntax_highlight">syntax_highlight</a>. To learn more about the syntax highlighter see <a href="#syntax-highlighting">Syntax Highlighting</a>.</p>
 <div class="codehilite"><pre>    <span class="s2">&quot;mdpopups_use_sublime_highlighter&quot;</span><span class="o">:</span> <span class="kc">true</span>
 </pre></div>
@@ -621,9 +582,9 @@
 </pre></div>
 </p>
 <p>For a list of all currently supported syntax mappings, see the official <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/st3/mdpopups/st_mapping.py">mapping file</a>.</p>
-<h1 id="syntax-highlighting"><a name="user-content-syntax-highlighting" href="#syntax-highlighting" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Syntax Highlighting</h1>
+<h2 id="syntax-highlighting"><a name="user-content-syntax-highlighting" href="#syntax-highlighting" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Syntax Highlighting</h2>
 <p>MdPopups has two syntax highlighting methods: one is Pygments, the other is Sublimes native syntax highlighters.  When developing a plugin, it is wise to test out both as a syntax mapping may be needed for the Sublime Syntax Highlighter; mappings can be added locally and/or to the main repository via pull requests.</p>
-<h2 id="pygments"><a name="user-content-pygments" href="#pygments" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Pygments</h2>
+<h3 id="pygments"><a name="user-content-pygments" href="#pygments" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Pygments</h3>
 <p>Pygments has a great variety of highlighters out of the box.  It also comes with a number of built-in color schemes that can be used.  Pygments themes are loaded up using the <a href="#css-templates">CSS template</a>.  You can either specify an existing one, paste your own in.  Due to the limitations of the Sublime HTML and CSS engine, you must format your personal Pygments them to work well.</p>
 <p>Traditionally Pygments CSS classes are given not only syntax classes applied to each span, but an overall class as assigned to the div wrapper as well.  For instance, a class for whitespace may look like this (where <code class="codehilite"><span class="nc">.highlight</span></code> is the div wrapper&rsquo;s class and <code class="codehilite"><span class="nc">.w</span></code> i the span&rsquo;s class):</p>
 <div class="codehilite"><pre><span class="nc">.highlight</span> <span class="nc">.w</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#cccccc</span> <span class="p">}</span> <span class="c">/* Text.Whitespace */</span>
@@ -709,20 +670,20 @@
 </pre></div>
 
 
-<h2 id="sublime-syntax-highlighter"><a name="user-content-sublime-syntax-highlighter" href="#sublime-syntax-highlighter" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Sublime Syntax Highlighter</h2>
+<h3 id="sublime-syntax-highlighter"><a name="user-content-sublime-syntax-highlighter" href="#sublime-syntax-highlighter" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Sublime Syntax Highlighter</h3>
 <p>MdPopups can also use Sublime&rsquo;s internal syntax highlighter to highlight your code.  The benefit here is that you get code highlighting in your popup that matches your current theme.  The highlighting ability is dependent upon what syntax packages you have installed in Sublime.  It also depends on whether they are enabled and mapped to a language keyword.  Pull requests are welcome to expand and keep the <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/st3/mdpopups/st_mapping.py">language mapping</a> updated.  You can also define in your <code>Preferences.sublime-settings</code> file additional mappings to either personal syntax files, or while waiting for your mapping changes to be merged and released.  See <a href="#mdpopups_sublime_user_lang_map">mdpopups_sublime_user_lang_map</a> for more info.</p>
 <p>In your CSS template it is usually a good idea to generically specify the code wrapper background colors.  With the <a href="#css-templates">CSS templates</a>, this is very easy:</p>
 <div class="codehilite"><pre><span class="nc">.highlight</span><span class="o">,</span> <span class="nc">.inline-highlight</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="cp">}}</span> <span class="p">}</span>
 </pre></div>
 
 
-<h1 id="css-styling"><a name="user-content-css-styling" href="#css-styling" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CSS Styling</h1>
+<h2 id="css-styling"><a name="user-content-css-styling" href="#css-styling" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CSS Styling</h2>
 <p>MdPopups was design to give a universal way of displaying and styling tooltips via plugins, but also provide the user an easy way to control the look.</p>
 <p>MdPopups provides a simple base CSS that styles the basic HTML tags that can be used in the Markdown parser.  On top of that it then parses your current Sublime color scheme and generates CSS that includes styling for all the <a href="../textmate_scopes/">standard TextMate scopes</a> (and only those listed scopes) found in your color scheme.  It then uses those scopes via in a default template to highlight your tooltips to match your current color scheme.</p>
 <p>Templates are used so that a user can easily tap into all the colors, color filters, and other usefull logic to control their tooltips in one place without having to hard code a specific CSS for a specific color scheme.  Even though a plugin can additionally insert new scopes on demand when calling the popup API, a user can override anything and everything by providing their own <a href="#mdpopups_user_css">CSS template</a>.  The template is fairly powerful and flexible.</p>
-<h1 id="css-templates"><a name="user-content-css-templates" href="#css-templates" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CSS Templates</h1>
+<h2 id="css-templates"><a name="user-content-css-templates" href="#css-templates" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CSS Templates</h2>
 <p>MdPoups provides a <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/css/base.css"><code>base.css</code></a> that formats the general look of the HTML elements (padding, size, etc.).  On top of that, it provides a <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/css/default.css"><code>default.css</code></a> template which applies more superficial styling such as colors, Pygments themes, etc.  It uses the Jinja2 template environment to give direct access to things like color scheme colors, names, and other useful information.  In general, <code>default.css</code> should provide most of what everyone <strong>needs</strong>.  But if you <strong>want</strong> greater control, you can create your own CSS template which MdPopups will use instead of <code>default.css</code>.</p>
-<h2 id="template-colors"><a name="user-content-template-colors" href="#template-colors" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Template Colors</h2>
+<h3 id="template-colors"><a name="user-content-template-colors" href="#template-colors" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Template Colors</h3>
 <p>With the template environment, colors from the current Sublime color scheme can be accessed and manipulated.  Access to the Sublime color scheme styles are done via the <code>css</code> filter.</p>
 <dl>
 <dt>css</dt>
@@ -777,7 +738,7 @@
 </p>
 </dd>
 </dl>
-<h2 id="template-color-filtering"><a name="user-content-template-color-filtering" href="#template-color-filtering" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Template Color Filtering</h2>
+<h3 id="template-color-filtering"><a name="user-content-template-color-filtering" href="#template-color-filtering" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Template Color Filtering</h3>
 <p>MdPopups also provides a number of color filters within the template environment that can manipulate the colors.  For instance, lets say you had your tooltip is the same color as the view window and it is difficult to see where the tooltip starts and ends.  You can take the color schemes background and apply a brightness filter to it allowing you now see the tooltip clearly.</p>
 <p>Here we can make the background of the tooltip darker:</p>
 <div class="codehilite"><pre><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">brightness</span><span class="o">(</span><span class="m">0.9</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
@@ -864,7 +825,7 @@
 </p>
 </dd>
 </dl>
-<h2 id="include-css"><a name="user-content-include-css" href="#include-css" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Include CSS</h2>
+<h3 id="include-css"><a name="user-content-include-css" href="#include-css" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Include CSS</h3>
 <p>The template environment allows for retrieving built-in Pygments CSS or retrieving CSS resources from the Sublime Packages.</p>
 <dl>
 <dt>pygments</dt>
