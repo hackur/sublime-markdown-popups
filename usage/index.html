@@ -485,7 +485,7 @@
 <dl>
 <dt>mdpopups.syntax_highlight</dt>
 <dd>
-<p>Allows for syntax highlighting outside the Markdown environment.  You can just feed it code directly and give it the language of your choice, and you will be returned a block of HTML that has been syntax highlighted.  <code>syntax_highlight</code> will use either Pygments or the native Sublime syntax highlighter.  Set <a href="#mdpopups_use_sublime_highlighter"><code>mdpopups_use_sublime_highlighter</code></a> to <code>true</code> if you want to use the Sublime syntax highlighter.</p>
+<p>Allows for syntax highlighting outside the Markdown environment.  You can just feed it code directly and give it the language of your choice, and you will be returned a block of HTML that has been syntax highlighted.  This does not have to be in markdown format.  Just give it plain text to convert to highlighted HTML. <code>syntax_highlight</code> will use either Pygments or the native Sublime syntax highlighter.  Set <a href="#mdpopups_use_sublime_highlighter"><code>mdpopups_use_sublime_highlighter</code></a> to <code>true</code> if you want to use the Sublime syntax highlighter.</p>
 <table>
 <thead>
 <tr>
@@ -505,11 +505,11 @@
 <td>Sublime text View object.</td>
 </tr>
 <tr>
-<td>markup</td>
+<td>src</td>
 <td>bool</td>
 <td>Yes</td>
 <td></td>
-<td>The markup code to be converted.</td>
+<td>The source code to be converted.  No <code>```</code> needed.</td>
 </tr>
 <tr>
 <td>language</td>
