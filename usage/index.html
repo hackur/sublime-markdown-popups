@@ -75,10 +75,6 @@
                 
                     <li><a class="toctree-l4" href="#global-user-settings">Global User Settings</a></li>
                 
-                    <li><a class="toctree-l4" href="#mdpopupsuser_css">mdpopups.user_css</a></li>
-                
-                    <li><a class="toctree-l4" href="#mdpopupssublime_user_lang_map">mdpopups.sublime_user_lang_map</a></li>
-                
                     <li><a class="toctree-l4" href="#syntax-highlighting">Syntax Highlighting</a></li>
                 
                     <li><a class="toctree-l4" href="#css-styling">CSS Styling</a></li>
@@ -568,13 +564,13 @@
 </pre></div>
 
 
-<h2 id="mdpopupsuser_css"><a name="user-content-mdpopupsuser_css" href="#mdpopupsuser_css" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups.user_css</h2>
+<h3 id="mdpopupsuser_css"><a name="user-content-mdpopupsuser_css" href="#mdpopupsuser_css" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups.user_css</h3>
 <p>Overrides the default CSS theme.  Value should be a relative path pointing to the CSS theme file: <code>Packages/User/my_custom_theme.css</code>.  Slashes should be forward slashes. By default, it will point to <code>Packages/User/mdpopups.css</code>.</p>
 <div class="codehilite"><pre>    <span class="s2">&quot;mdpopups.use_sublime_highlighter&quot;</span><span class="o">:</span> <span class="s2">&quot;Packages/User/mdpopups.css&quot;</span>
 </pre></div>
 
 
-<h2 id="mdpopupssublime_user_lang_map"><a name="user-content-mdpopupssublime_user_lang_map" href="#mdpopupssublime_user_lang_map" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups.sublime_user_lang_map</h2>
+<h3 id="mdpopupssublime_user_lang_map"><a name="user-content-mdpopupssublime_user_lang_map" href="#mdpopupssublime_user_lang_map" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups.sublime_user_lang_map</h3>
 <p>This is a special setting allowing the mapping of personal syntax languages which are not yet included or will not be included in the official mapping table.  You can either define your own new entry, or use the name of an existing entry to extend language keywords or syntax languages.  When extending, user keywords and languages will be cycled through first.</p>
 <div class="codehilite"><pre>    <span class="s1">&#39;mdpopups.sublime_user_lang_map&#39;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;language&quot;</span><span class="o">:</span> <span class="p">((</span><span class="s1">&#39;keywords&#39;</span><span class="p">,),</span> <span class="p">(</span><span class="s1">&#39;MyPackage/MySyntaxLanguage&#39;</span><span class="p">))</span>
