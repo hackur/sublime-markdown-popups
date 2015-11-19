@@ -480,6 +480,13 @@
 <td>5</td>
 <td>Max number of colors that will be evaluated in the <code>colors</code>parameter.  Multiple colors are used to to create palette boxes showing multiple colors lined up horizontally.</td>
 </tr>
+<tr>
+<td>alpha</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Will create color box images with a real alpha channel instead of simulating one with a checkered background.</td>
+</tr>
 </tbody>
 </table>
 </dd>
@@ -714,7 +721,7 @@
 </pre></div>
 
 
-<p>Some scopes might not be have colors assigned to them in a them, so multiple scopes can be defined, and the first one that matches will be used:</p>
+<p>Some scopes might not have colors assigned to them, so multiple scopes can be defined, and the first one that matches will be used:</p>
 <div class="codehilite"><pre><span class="c">/* If `keyword.operator` is not explicitly used, fallback to `.keyword` */</span>
 <span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.keyword.operator, .keyword&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;color&#39;</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
 </pre></div>
