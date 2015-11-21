@@ -162,9 +162,9 @@
     <span class="s2">&quot;*&quot;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;&gt;=3000&quot;</span><span class="o">:</span> <span class="p">[</span>
             <span class="s2">&quot;pygments&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;markdown&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;python-markdown&quot;</span><span class="p">,</span>
             <span class="s2">&quot;mdpopups&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;jinja2&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;python-jinja2&quot;</span><span class="p">,</span>
             <span class="s2">&quot;markupsafe&quot;</span>
         <span class="p">]</span>
     <span class="p">}</span>
@@ -191,6 +191,11 @@
 </ul>
 <h2 id="api-usage"><a name="user-content-api-usage" href="#api-usage" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>API Usage</h2>
 <p>MdPopups provides a handful of accessible functions.</p>
+<h3 id="version"><a name="user-content-version" href="#version" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>version</h3>
+<dl>
+<dt>mdpopups.version</dt>
+<dd>Get the version of the MdPopups library.  Returns a tuple of integers which represents the major, minor, and patch version.</dd>
+</dl>
 <h3 id="show_popup"><a name="user-content-show_popup" href="#show_popup" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>show_popup</h3>
 <dl>
 <dt>mdpopups.show_popup</dt>
@@ -486,6 +491,13 @@
 <td>No</td>
 <td>False</td>
 <td>Will create color box images with a real alpha channel instead of simulating one with a checkered background.</td>
+</tr>
+<tr>
+<td>border_map</td>
+<td>int</td>
+<td>No</td>
+<td>0xF</td>
+<td>A mapping of which borders to show.  Where <code>0x1</code>is <code>TOP</code> <code>0x2</code>is <code>LEFT</code> <code>0x4</code>is <code>BOTTOM</code> <code>0x8</code>is <code>RIGHT</code>  Map flags can be accessed via <code>mdpopups.colorbox.TOP</code>etc.</td>
 </tr>
 </tbody>
 </table>
