@@ -144,8 +144,8 @@
 <h1 id="questions"><a name="user-content-questions" href="#questions" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Questions</h1>
 <ul>
 <li>
-<p><strong>Why don&rsquo;t <code class="codehilite"><span class="nt">&lt;pre&gt;</span></code> tags work right?</strong></p>
-<p style="font-style: italic">This is because the HTML engine in Sublime treats <code class="codehilite"><span class="nt">&lt;pre&gt;</span></code> tags just as a normal block element; it doesn&rsquo;t treat the content as preformatted.  When MdPopups creates code blocks, it actually specially formats the blocks.  It converts tabs to 4 spaces, any contiguous spaces after the first are converted to <code class="codehilite"><span class="ni">&amp;nbsp;</span></code>.  And lastly, new lines get converted to <code class="codehilite"><span class="nt">&lt;br&gt;</span></code> tags.<br /></p>
+<p><strong>Why don&rsquo;t <code class="codehilite"><span class="p">&lt;</span><span class="nt">pre</span><span class="p">&gt;</span></code> tags work right?</strong></p>
+<p style="font-style: italic">This is because the HTML engine in Sublime treats <code class="codehilite"><span class="p">&lt;</span><span class="nt">pre</span><span class="p">&gt;</span></code> tags just as a normal block element; it doesn&rsquo;t treat the content as preformatted.  When MdPopups creates code blocks, it actually specially formats the blocks.  It converts tabs to 4 spaces, any contiguous spaces after the first are converted to <code class="codehilite"><span class="ni">&amp;nbsp;</span></code>.  And lastly, new lines get converted to <code class="codehilite"><span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span></code> tags.<br /></p>
 </li>
 <li>
 <p><strong>Why in code blocks do tabs get converted to 4 spaces?</strong></p>
@@ -153,7 +153,7 @@
 </li>
 <li>
 <p><strong>Why does &lt;insert element&gt; not work, or cause the tooltip not to show?</strong></p>
-<p style="font-style: italic">Because Sublime&rsquo;s HTML engine is extremely limited.  Though I do not have a complete list of all supported elements, you should keep things basic.  Things like <code class="codehilite"><span class="nt">&lt;table&gt;</span></code> will not work.<br /></p>
+<p style="font-style: italic">Because Sublime&rsquo;s HTML engine is extremely limited.  Though I do not have a complete list of all supported elements, you should keep things basic.  Things like <code class="codehilite"><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span></code> will not work.<br /></p>
 </li>
 <li>
 <p><strong>Why can&rsquo;t I get CSS selectors like this to work: <code class="codehilite"><span class="nt">div</span> <span class="nt">p</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span></code>?</strong></p>

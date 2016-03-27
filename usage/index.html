@@ -158,7 +158,7 @@
 <hr />
 <h2 id="dependencies"><a name="user-content-dependencies" href="#dependencies" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Dependencies</h2>
 <p>Your plugin must include the following Package Control dependencies:</p>
-<div class="codehilite"><pre><span class="p">{</span>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
     <span class="s2">&quot;*&quot;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;&gt;=3080&quot;</span><span class="o">:</span> <span class="p">[</span>
             <span class="s2">&quot;pygments&quot;</span><span class="p">,</span>
@@ -177,7 +177,7 @@
 <p>MdPopups enables the following Python Markdown extensions:</p>
 <ul>
 <li><a href="https://pythonhosted.org/Markdown/extensions/attr_list.html">attr_list</a> allows you to add HTML attributes to block and inline elements easily.</li>
-<li><a href="https://pythonhosted.org/Markdown/extensions/nl2br.html">nl2br</a> turns new lines int <code class="codehilite"><span class="nt">&lt;br&gt;</span></code> tags.</li>
+<li><a href="https://pythonhosted.org/Markdown/extensions/nl2br.html">nl2br</a> turns new lines int <code class="codehilite"><span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span></code> tags.</li>
 <li><a href="https://pythonhosted.org/Markdown/extensions/definition_lists.html">def_list</a> adds support for definition lists.</li>
 <li><a href="https://pythonhosted.org/Markdown/extensions/admonition.html">admonition</a> provides admonition blocks.</li>
 <li><a href="https://pythonhosted.org/Markdown/extensions/code_hilite.html">codehilite</a> provides syntax highlighted blocks.</li>
@@ -245,7 +245,7 @@
 <td>int</td>
 <td>No</td>
 <td>0</td>
-<td>Flags to pass down to the Sublime Text <code>view.show_popup</code>call.</td>
+<td>Flags to pass down to the Sublime Text <code>view.show_popup</code> call.</td>
 </tr>
 <tr>
 <td>location</td>
@@ -273,7 +273,7 @@
 <td>function</td>
 <td>No</td>
 <td>None</td>
-<td>Callback that receives one variable <code>href</code></td>
+<td>Callback that receives one variable <code>href</code>.</td>
 </tr>
 <tr>
 <td>on_hide</td>
@@ -290,11 +290,11 @@
 <p class="admonition-title">Developers Guidelines</p>
 <p>If injecting your own CSS classes from a plugin, please namespace them by either giving them a very unique name (preferably with the plugin&rsquo;s name as part of the class) or use an additional namespace class (preferably with the plugin&rsquo;s name) and a specific class.  This way a user can target and override your class styling if desired.</p>
 <p><strong>Example - Unique Class Name</strong>:<br />
-<div class="codehilite"><pre><span class="nc">.myplugin-myclass</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nc">.myplugin-myclass</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
 </pre></div>
 </p>
 <p><strong>Example - Namespace Class</strong>:<br />
-<div class="codehilite"><pre><span class="nc">.myplugin.myclass</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nc">.myplugin.myclass</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
 </pre></div>
 </p>
 <p>Also, do not try to override the style of existing base classes and elements with plugin injection, but use custom plugin classes so that you will only target what your plugin as specifically added special classes to.</p>
@@ -434,21 +434,21 @@
 <td>[string]</td>
 <td>Yes</td>
 <td></td>
-<td>A list of color strings formatted as <code>#RRGGBBAA</code>where <code>R</code>is the red channel, <code>G</code>is the green channel, <code>B</code>is the blue channel, and <code>A</code>is the alpha channel.</td>
+<td>A list of color strings formatted as <code>#RRGGBBAA</code> where <code>R</code> is the red channel, <code>G</code> is the green channel, <code>B</code> is the blue channel, and <code>A</code> is the alpha channel.</td>
 </tr>
 <tr>
 <td>border</td>
 <td>string</td>
 <td>Yes</td>
 <td></td>
-<td>The color for the color box border.  Input is a RGB color formatted as <code>#RRGGBB</code></td>
+<td>The color for the color box border.  Input is a RGB color formatted as <code>#RRGGBB</code>.</td>
 </tr>
 <tr>
 <td>border2</td>
 <td>string</td>
 <td>No</td>
 <td>None</td>
-<td>The optional secondary border color.  This is great if you are going to have it on a light and dark backgrounds.  You can use a double border so the color stands out regardless of the background.  Input is a RGB color formatted as <code>#RRGGBB</code></td>
+<td>The optional secondary border color.  This is great if you are going to have it on a light and dark backgrounds.  You can use a double border so the color stands out regardless of the background.  Input is a RGB color formatted as <code>#RRGGBB</code>.</td>
 </tr>
 <tr>
 <td>height</td>
@@ -469,7 +469,7 @@
 <td>int</td>
 <td>No</td>
 <td>1</td>
-<td>Width of the color box border.  If using <code>border2</code> the value should be set to at least 2 to see both colors.</td>
+<td>Width of the color box border.  If using <code>border2</code>, the value should be set to at least 2 to see both colors.</td>
 </tr>
 <tr>
 <td>check_size</td>
@@ -483,7 +483,7 @@
 <td>int</td>
 <td>No</td>
 <td>5</td>
-<td>Max number of colors that will be evaluated in the <code>colors</code>parameter.  Multiple colors are used to to create palette boxes showing multiple colors lined up horizontally.</td>
+<td>Max number of colors that will be evaluated in the <code>colors</code> parameter.  Multiple colors are used to to create palette boxes showing multiple colors lined up horizontally.</td>
 </tr>
 <tr>
 <td>alpha</td>
@@ -497,7 +497,7 @@
 <td>int</td>
 <td>No</td>
 <td>0xF</td>
-<td>A mapping of which borders to show.  Where <code>0x1</code>is <code>TOP</code> <code>0x2</code>is <code>LEFT</code> <code>0x4</code>is <code>BOTTOM</code> <code>0x8</code>is <code>RIGHT</code>  Map flags can be accessed via <code>mdpopups.colorbox.TOP</code>etc.</td>
+<td>A mapping of which borders to show.  Where <code>0x1</code> is <code>TOP</code>, <code>0x2</code> is <code>LEFT</code>, <code>0x4</code> is <code>BOTTOM</code>, <code>0x8</code> is <code>RIGHT</code>.  Map flags can be accessed via <code>mdpopups.colorbox.TOP</code> etc.</td>
 </tr>
 </tbody>
 </table>
@@ -555,50 +555,50 @@
 <p>All settings for <code>MdPopups</code> are placed in Sublime&rsquo;s <code>Preferences.sublime-settings</code>.  They are global and work no for whatever plugin uses the MdPopups API.</p>
 <h3 id="mdpopupsdebug"><a name="user-content-mdpopupsdebug" href="#mdpopupsdebug" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups.debug</h3>
 <p>Turns on debug mode.  This will dump out all sorts of info to the console.  Such as content before parsing to HTML, final HTML output, etc.  This is more useful for plugin developers.</p>
-<div class="codehilite"><pre>    <span class="s2">&quot;mdpopups.debug&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<div class="codehilite"><pre><span></span>    <span class="s2">&quot;mdpopups.debug&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
 </pre></div>
 
 
 <h3 id="mdpopupsdisable"><a name="user-content-mdpopupsdisable" href="#mdpopupsdisable" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups.disable</h3>
 <p>Global kill switch to prevent popups (created by MdPopups) from appearing.</p>
-<div class="codehilite"><pre>    <span class="s2">&quot;mdpopups.disable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<div class="codehilite"><pre><span></span>    <span class="s2">&quot;mdpopups.disable&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
 </pre></div>
 
 
 <h3 id="mdpopupscache_refresh_time"><a name="user-content-mdpopupscache_refresh_time" href="#mdpopupscache_refresh_time" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups.cache_refresh_time</h3>
 <p>Control how long a CSS theme file will be in the cache before being refreshed.  Value should be a positive integer greater than 0.  Units are in minutes.  Default is 30.</p>
-<div class="codehilite"><pre>    <span class="s2">&quot;mdpopups.cache_refresh_time&quot;</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+<div class="codehilite"><pre><span></span>    <span class="s2">&quot;mdpopups.cache_refresh_time&quot;</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
 </pre></div>
 
 
 <h3 id="mdpopupscache_limit"><a name="user-content-mdpopupscache_limit" href="#mdpopupscache_limit" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups.cache_limit</h3>
 <p>Control how many CSS theme files will be kept in cache at any given time.  Value should be a positive integer greater than or equal to 0.</p>
-<div class="codehilite"><pre>    <span class="s2">&quot;mdpopups.cache_limit&quot;</span><span class="o">:</span> <span class="mi">10</span>
+<div class="codehilite"><pre><span></span>    <span class="s2">&quot;mdpopups.cache_limit&quot;</span><span class="o">:</span> <span class="mi">10</span>
 </pre></div>
 
 
 <h3 id="mdpopupsuse_sublime_highlighter"><a name="user-content-mdpopupsuse_sublime_highlighter" href="#mdpopupsuse_sublime_highlighter" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups.use_sublime_highlighter</h3>
 <p>Controls whether the Pygments or the native Sublime syntax highlighter is used for code highlighting.  This affects code highlighting in Markdown conversion] via and when <a href="#md2html">md2html</a> and when code is directly processed using <a href="#syntax_highlight">syntax_highlight</a>. To learn more about the syntax highlighter see <a href="#syntax-highlighting">Syntax Highlighting</a>.</p>
-<div class="codehilite"><pre>    <span class="s2">&quot;mdpopups.use_sublime_highlighter&quot;</span><span class="o">:</span> <span class="kc">true</span>
+<div class="codehilite"><pre><span></span>    <span class="s2">&quot;mdpopups.use_sublime_highlighter&quot;</span><span class="o">:</span> <span class="kc">true</span>
 </pre></div>
 
 
 <h3 id="mdpopupsuser_css"><a name="user-content-mdpopupsuser_css" href="#mdpopupsuser_css" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups.user_css</h3>
 <p>Overrides the default CSS theme.  Value should be a relative path pointing to the CSS theme file: <code>Packages/User/my_custom_theme.css</code>.  Slashes should be forward slashes. By default, it will point to <code>Packages/User/mdpopups.css</code>.</p>
-<div class="codehilite"><pre>    <span class="s2">&quot;mdpopups.use_sublime_highlighter&quot;</span><span class="o">:</span> <span class="s2">&quot;Packages/User/mdpopups.css&quot;</span>
+<div class="codehilite"><pre><span></span>    <span class="s2">&quot;mdpopups.use_sublime_highlighter&quot;</span><span class="o">:</span> <span class="s2">&quot;Packages/User/mdpopups.css&quot;</span>
 </pre></div>
 
 
 <h3 id="mdpopupssublime_user_lang_map"><a name="user-content-mdpopupssublime_user_lang_map" href="#mdpopupssublime_user_lang_map" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups.sublime_user_lang_map</h3>
 <p>This is a special setting allowing the mapping of personal syntax languages which are not yet included or will not be included in the official mapping table.  You can either define your own new entry, or use the name of an existing entry to extend language keywords or syntax languages.  When extending, user keywords and languages will be cycled through first.</p>
-<div class="codehilite"><pre>    <span class="s1">&#39;mdpopups.sublime_user_lang_map&#39;</span><span class="o">:</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span>    <span class="s1">&#39;mdpopups.sublime_user_lang_map&#39;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;language&quot;</span><span class="o">:</span> <span class="p">((</span><span class="s1">&#39;keywords&#39;</span><span class="p">,),</span> <span class="p">(</span><span class="s1">&#39;MyPackage/MySyntaxLanguage&#39;</span><span class="p">))</span>
     <span class="p">}</span>
 </pre></div>
 
 
 <p><strong>Example</strong>:<br />
-<div class="codehilite"><pre><span class="s1">&#39;mdpopups.sublime_user_lang_map&#39;</span><span class="o">:</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><span class="s1">&#39;mdpopups.sublime_user_lang_map&#39;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s1">&#39;javascript&#39;</span><span class="o">:</span> <span class="p">((</span><span class="s1">&#39;javascript&#39;</span><span class="p">,</span> <span class="s1">&#39;js&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;JavaScript/JavaScript&#39;</span><span class="p">,</span> <span class="s1">&#39;JavaScriptNext - ES6 Syntax/JavaScriptNext&#39;</span><span class="p">))</span>
 <span class="p">}</span>
 </pre></div>
@@ -609,93 +609,93 @@
 <h3 id="pygments"><a name="user-content-pygments" href="#pygments" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Pygments</h3>
 <p>Pygments has a great variety of highlighters out of the box.  It also comes with a number of built-in color schemes that can be used.  Pygments themes are loaded up using the <a href="#css-templates">CSS template</a>.  You can either specify an existing one, paste your own in.  Due to the limitations of the Sublime HTML and CSS engine, you must format your personal Pygments them to work well.</p>
 <p>Traditionally Pygments CSS classes are given not only syntax classes applied to each span, but an overall class as assigned to the div wrapper as well.  For instance, a class for whitespace may look like this (where <code class="codehilite"><span class="nc">.highlight</span></code> is the div wrapper&rsquo;s class and <code class="codehilite"><span class="nc">.w</span></code> i the span&rsquo;s class):</p>
-<div class="codehilite"><pre><span class="nc">.highlight</span> <span class="nc">.w</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#cccccc</span> <span class="p">}</span> <span class="c">/* Text.Whitespace */</span>
+<div class="codehilite"><pre><span></span><span class="nc">.highlight</span> <span class="nc">.w</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#cccccc</span> <span class="p">}</span> <span class="c">/* Text.Whitespace */</span>
 </pre></div>
 
 
 <p>But the sublime CSS engine doesn&rsquo;t support parent and child classes like <code class="codehilite"><span class="nc">.highlight</span> <span class="nc">.w</span></code>; it supports either single or multiple classes on one element like <code class="codehilite"><span class="nc">.class1.class2</span></code>.  Because of this, the <code class="codehilite"><span class="nc">.highlight</span></code> class must be stripped out.</p>
-<div class="codehilite"><pre><span class="nc">.w</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#cccccc</span> <span class="p">}</span> <span class="c">/* Text.Whitespace */</span>
+<div class="codehilite"><pre><span></span><span class="nc">.w</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#cccccc</span> <span class="p">}</span> <span class="c">/* Text.Whitespace */</span>
 </pre></div>
 
 
 <p>MdPopups also needs both classes <code class="codehilite"><span class="nc">.highlgiht</span></code> and <code class="codehilite"><span class="nc">.inline-highlight</span></code> to be styled with the foreground and background color:</p>
-<div class="codehilite"><pre><span class="nc">.highlight</span><span class="o">,</span> <span class="nc">.inline-highlight</span> <span class="p">{</span> <span class="k">background-color</span><span class="o">:</span> <span class="m">#f8f8f8</span><span class="p">;</span> <span class="k">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nc">.highlight</span><span class="o">,</span> <span class="nc">.inline-highlight</span> <span class="p">{</span> <span class="nb">background-color</span><span class="o">:</span> <span class="m">#f8f8f8</span><span class="p">;</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span>
 </pre></div>
 
 
 <p><strong>Full Example</strong>:</p>
-<div class="codehilite"><pre><span class="nc">.highlight</span><span class="o">,</span> <span class="nc">.inline-highlight</span> <span class="p">{</span> <span class="k">background-color</span><span class="o">:</span> <span class="m">#f8f8f8</span><span class="p">;</span> <span class="k">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span>
-<span class="nc">.c</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#8e908c</span><span class="p">;</span> <span class="k">font-style</span><span class="o">:</span> <span class="k">italic</span> <span class="p">}</span> <span class="c">/* Comment */</span>
-<span class="nc">.err</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#c82829</span> <span class="p">}</span> <span class="c">/* Error */</span>
-<span class="nc">.k</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#8959a8</span><span class="p">;</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span> <span class="p">}</span> <span class="c">/* Keyword */</span>
-<span class="nc">.l</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#f5871f</span> <span class="p">}</span> <span class="c">/* Literal */</span>
-<span class="nc">.n</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span> <span class="c">/* Name */</span>
-<span class="nc">.o</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#3e999f</span> <span class="p">}</span> <span class="c">/* Operator */</span>
-<span class="nc">.p</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span> <span class="c">/* Punctuation */</span>
-<span class="nc">.cm</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#8e908c</span><span class="p">;</span> <span class="k">font-style</span><span class="o">:</span> <span class="k">italic</span> <span class="p">}</span> <span class="c">/* Comment.Multiline */</span>
-<span class="nc">.cp</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#8e908c</span><span class="p">;</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span> <span class="p">}</span> <span class="c">/* Comment.Preproc */</span>
-<span class="nc">.c1</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#8e908c</span><span class="p">;</span> <span class="k">font-style</span><span class="o">:</span> <span class="k">italic</span> <span class="p">}</span> <span class="c">/* Comment.Single */</span>
-<span class="nc">.cs</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#8e908c</span><span class="p">;</span> <span class="k">font-style</span><span class="o">:</span> <span class="k">italic</span> <span class="p">}</span> <span class="c">/* Comment.Special */</span>
-<span class="nc">.gd</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#c82829</span> <span class="p">}</span> <span class="c">/* Generic.Deleted */</span>
-<span class="nc">.ge</span> <span class="p">{</span> <span class="k">font-style</span><span class="o">:</span> <span class="k">italic</span> <span class="p">}</span> <span class="c">/* Generic.Emph */</span>
-<span class="nc">.gh</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#4d4d4c</span><span class="p">;</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span> <span class="p">}</span> <span class="c">/* Generic.Heading */</span>
-<span class="nc">.gi</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#718c00</span> <span class="p">}</span> <span class="c">/* Generic.Inserted */</span>
-<span class="nc">.gp</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#8e908c</span><span class="p">;</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span> <span class="p">}</span> <span class="c">/* Generic.Prompt */</span>
-<span class="nc">.gs</span> <span class="p">{</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span> <span class="p">}</span> <span class="c">/* Generic.Strong */</span>
-<span class="nc">.gu</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#3e999f</span><span class="p">;</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span> <span class="p">}</span> <span class="c">/* Generic.Subheading */</span>
-<span class="nc">.kc</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#8959a8</span><span class="p">;</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span> <span class="p">}</span> <span class="c">/* Keyword.Constant */</span>
-<span class="nc">.kd</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#8959a8</span><span class="p">;</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span> <span class="p">}</span> <span class="c">/* Keyword.Declaration */</span>
-<span class="nc">.kn</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#8959a8</span><span class="p">;</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span> <span class="p">}</span> <span class="c">/* Keyword.Namespace */</span>
-<span class="nc">.kp</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#8959a8</span><span class="p">;</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span> <span class="p">}</span> <span class="c">/* Keyword.Pseudo */</span>
-<span class="nc">.kr</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#8959a8</span><span class="p">;</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span> <span class="p">}</span> <span class="c">/* Keyword.Reserved */</span>
-<span class="nc">.kt</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#eab700</span><span class="p">;</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span> <span class="p">}</span> <span class="c">/* Keyword.Type */</span>
-<span class="nc">.ld</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#718c00</span> <span class="p">}</span> <span class="c">/* Literal.Date */</span>
-<span class="nc">.m</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#f5871f</span> <span class="p">}</span> <span class="c">/* Literal.Number */</span>
-<span class="nc">.s</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#718c00</span> <span class="p">}</span> <span class="c">/* Literal.String */</span>
-<span class="nc">.na</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#4271ae</span> <span class="p">}</span> <span class="c">/* Name.Attribute */</span>
-<span class="nc">.nb</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#4271ae</span> <span class="p">}</span> <span class="c">/* Name.Builtin */</span>
-<span class="nc">.nc</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#c82829</span><span class="p">;</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span> <span class="p">}</span> <span class="c">/* Name.Class */</span>
-<span class="nc">.no</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#c82829</span> <span class="p">}</span> <span class="c">/* Name.Constant */</span>
-<span class="nc">.nd</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#3e999f</span> <span class="p">}</span> <span class="c">/* Name.Decorator */</span>
-<span class="nc">.ni</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span> <span class="c">/* Name.Entity */</span>
-<span class="nc">.ne</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#c82829</span><span class="p">;</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span> <span class="p">}</span> <span class="c">/* Name.Exception */</span>
-<span class="nc">.nf</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#4271ae</span><span class="p">;</span> <span class="k">font-weight</span><span class="o">:</span> <span class="k">bold</span> <span class="p">}</span> <span class="c">/* Name.Function */</span>
-<span class="nc">.nl</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span> <span class="c">/* Name.Label */</span>
-<span class="nc">.nn</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span> <span class="c">/* Name.Namespace */</span>
-<span class="nc">.nx</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#4271ae</span> <span class="p">}</span> <span class="c">/* Name.Other */</span>
-<span class="nc">.py</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span> <span class="c">/* Name.Property */</span>
-<span class="nc">.nt</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#c82829</span> <span class="p">}</span> <span class="c">/* Name.Tag */</span>
-<span class="nc">.nv</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#c82829</span> <span class="p">}</span> <span class="c">/* Name.Variable */</span>
-<span class="nc">.ow</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#3e999f</span> <span class="p">}</span> <span class="c">/* Operator.Word */</span>
-<span class="nc">.w</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span> <span class="c">/* Text.Whitespace */</span>
-<span class="nc">.mb</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#f5871f</span> <span class="p">}</span> <span class="c">/* Literal.Number.Bin */</span>
-<span class="nc">.mf</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#f5871f</span> <span class="p">}</span> <span class="c">/* Literal.Number.Float */</span>
-<span class="nc">.mh</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#f5871f</span> <span class="p">}</span> <span class="c">/* Literal.Number.Hex */</span>
-<span class="nc">.mi</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#f5871f</span> <span class="p">}</span> <span class="c">/* Literal.Number.Integer */</span>
-<span class="nc">.mo</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#f5871f</span> <span class="p">}</span> <span class="c">/* Literal.Number.Oct */</span>
-<span class="nc">.sb</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#718c00</span> <span class="p">}</span> <span class="c">/* Literal.String.Backtick */</span>
-<span class="nc">.sc</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span> <span class="c">/* Literal.String.Char */</span>
-<span class="nc">.sd</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#8e908c</span> <span class="p">}</span> <span class="c">/* Literal.String.Doc */</span>
-<span class="nc">.s2</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#718c00</span> <span class="p">}</span> <span class="c">/* Literal.String.Double */</span>
-<span class="nc">.se</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#f5871f</span> <span class="p">}</span> <span class="c">/* Literal.String.Escape */</span>
-<span class="nc">.sh</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#718c00</span> <span class="p">}</span> <span class="c">/* Literal.String.Heredoc */</span>
-<span class="nc">.si</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#f5871f</span> <span class="p">}</span> <span class="c">/* Literal.String.Interpol */</span>
-<span class="nc">.sx</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#718c00</span> <span class="p">}</span> <span class="c">/* Literal.String.Other */</span>
-<span class="nc">.sr</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#718c00</span> <span class="p">}</span> <span class="c">/* Literal.String.Regex */</span>
-<span class="nc">.s1</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#718c00</span> <span class="p">}</span> <span class="c">/* Literal.String.Single */</span>
-<span class="nc">.ss</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#718c00</span> <span class="p">}</span> <span class="c">/* Literal.String.Symbol */</span>
-<span class="nc">.bp</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#f5871f</span> <span class="p">}</span> <span class="c">/* Name.Builtin.Pseudo */</span>
-<span class="nc">.vc</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#c82829</span> <span class="p">}</span> <span class="c">/* Name.Variable.Class */</span>
-<span class="nc">.vg</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#c82829</span> <span class="p">}</span> <span class="c">/* Name.Variable.Global */</span>
-<span class="nc">.vi</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#c82829</span> <span class="p">}</span> <span class="c">/* Name.Variable.Instance */</span>
-<span class="nc">.il</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#f5871f</span> <span class="p">}</span> <span class="c">/* Literal.Number.Integer.Long */</span>
+<div class="codehilite"><pre><span></span><span class="nc">.highlight</span><span class="o">,</span> <span class="nc">.inline-highlight</span> <span class="p">{</span> <span class="nb">background-color</span><span class="o">:</span> <span class="m">#f8f8f8</span><span class="p">;</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span>
+<span class="nc">.c</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#8e908c</span><span class="p">;</span> <span class="nb">font-style</span><span class="o">:</span> <span class="nb">italic</span> <span class="p">}</span> <span class="c">/* Comment */</span>
+<span class="nc">.err</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#c82829</span> <span class="p">}</span> <span class="c">/* Error */</span>
+<span class="nc">.k</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#8959a8</span><span class="p">;</span> <span class="nb">font-weight</span><span class="o">:</span> <span class="nb">bold</span> <span class="p">}</span> <span class="c">/* Keyword */</span>
+<span class="nc">.l</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#f5871f</span> <span class="p">}</span> <span class="c">/* Literal */</span>
+<span class="nc">.n</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span> <span class="c">/* Name */</span>
+<span class="nc">.o</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#3e999f</span> <span class="p">}</span> <span class="c">/* Operator */</span>
+<span class="nc">.p</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span> <span class="c">/* Punctuation */</span>
+<span class="nc">.cm</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#8e908c</span><span class="p">;</span> <span class="nb">font-style</span><span class="o">:</span> <span class="nb">italic</span> <span class="p">}</span> <span class="c">/* Comment.Multiline */</span>
+<span class="nc">.cp</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#8e908c</span><span class="p">;</span> <span class="nb">font-weight</span><span class="o">:</span> <span class="nb">bold</span> <span class="p">}</span> <span class="c">/* Comment.Preproc */</span>
+<span class="nc">.c1</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#8e908c</span><span class="p">;</span> <span class="nb">font-style</span><span class="o">:</span> <span class="nb">italic</span> <span class="p">}</span> <span class="c">/* Comment.Single */</span>
+<span class="nc">.cs</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#8e908c</span><span class="p">;</span> <span class="nb">font-style</span><span class="o">:</span> <span class="nb">italic</span> <span class="p">}</span> <span class="c">/* Comment.Special */</span>
+<span class="nc">.gd</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#c82829</span> <span class="p">}</span> <span class="c">/* Generic.Deleted */</span>
+<span class="nc">.ge</span> <span class="p">{</span> <span class="nb">font-style</span><span class="o">:</span> <span class="nb">italic</span> <span class="p">}</span> <span class="c">/* Generic.Emph */</span>
+<span class="nc">.gh</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#4d4d4c</span><span class="p">;</span> <span class="nb">font-weight</span><span class="o">:</span> <span class="nb">bold</span> <span class="p">}</span> <span class="c">/* Generic.Heading */</span>
+<span class="nc">.gi</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#718c00</span> <span class="p">}</span> <span class="c">/* Generic.Inserted */</span>
+<span class="nc">.gp</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#8e908c</span><span class="p">;</span> <span class="nb">font-weight</span><span class="o">:</span> <span class="nb">bold</span> <span class="p">}</span> <span class="c">/* Generic.Prompt */</span>
+<span class="nc">.gs</span> <span class="p">{</span> <span class="nb">font-weight</span><span class="o">:</span> <span class="nb">bold</span> <span class="p">}</span> <span class="c">/* Generic.Strong */</span>
+<span class="nc">.gu</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#3e999f</span><span class="p">;</span> <span class="nb">font-weight</span><span class="o">:</span> <span class="nb">bold</span> <span class="p">}</span> <span class="c">/* Generic.Subheading */</span>
+<span class="nc">.kc</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#8959a8</span><span class="p">;</span> <span class="nb">font-weight</span><span class="o">:</span> <span class="nb">bold</span> <span class="p">}</span> <span class="c">/* Keyword.Constant */</span>
+<span class="nc">.kd</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#8959a8</span><span class="p">;</span> <span class="nb">font-weight</span><span class="o">:</span> <span class="nb">bold</span> <span class="p">}</span> <span class="c">/* Keyword.Declaration */</span>
+<span class="nc">.kn</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#8959a8</span><span class="p">;</span> <span class="nb">font-weight</span><span class="o">:</span> <span class="nb">bold</span> <span class="p">}</span> <span class="c">/* Keyword.Namespace */</span>
+<span class="nc">.kp</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#8959a8</span><span class="p">;</span> <span class="nb">font-weight</span><span class="o">:</span> <span class="nb">bold</span> <span class="p">}</span> <span class="c">/* Keyword.Pseudo */</span>
+<span class="nc">.kr</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#8959a8</span><span class="p">;</span> <span class="nb">font-weight</span><span class="o">:</span> <span class="nb">bold</span> <span class="p">}</span> <span class="c">/* Keyword.Reserved */</span>
+<span class="nc">.kt</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#eab700</span><span class="p">;</span> <span class="nb">font-weight</span><span class="o">:</span> <span class="nb">bold</span> <span class="p">}</span> <span class="c">/* Keyword.Type */</span>
+<span class="nc">.ld</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#718c00</span> <span class="p">}</span> <span class="c">/* Literal.Date */</span>
+<span class="nc">.m</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#f5871f</span> <span class="p">}</span> <span class="c">/* Literal.Number */</span>
+<span class="nc">.s</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#718c00</span> <span class="p">}</span> <span class="c">/* Literal.String */</span>
+<span class="nc">.na</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#4271ae</span> <span class="p">}</span> <span class="c">/* Name.Attribute */</span>
+<span class="nc">.nb</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#4271ae</span> <span class="p">}</span> <span class="c">/* Name.Builtin */</span>
+<span class="nc">.nc</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#c82829</span><span class="p">;</span> <span class="nb">font-weight</span><span class="o">:</span> <span class="nb">bold</span> <span class="p">}</span> <span class="c">/* Name.Class */</span>
+<span class="nc">.no</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#c82829</span> <span class="p">}</span> <span class="c">/* Name.Constant */</span>
+<span class="nc">.nd</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#3e999f</span> <span class="p">}</span> <span class="c">/* Name.Decorator */</span>
+<span class="nc">.ni</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span> <span class="c">/* Name.Entity */</span>
+<span class="nc">.ne</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#c82829</span><span class="p">;</span> <span class="nb">font-weight</span><span class="o">:</span> <span class="nb">bold</span> <span class="p">}</span> <span class="c">/* Name.Exception */</span>
+<span class="nc">.nf</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#4271ae</span><span class="p">;</span> <span class="nb">font-weight</span><span class="o">:</span> <span class="nb">bold</span> <span class="p">}</span> <span class="c">/* Name.Function */</span>
+<span class="nc">.nl</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span> <span class="c">/* Name.Label */</span>
+<span class="nc">.nn</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span> <span class="c">/* Name.Namespace */</span>
+<span class="nc">.nx</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#4271ae</span> <span class="p">}</span> <span class="c">/* Name.Other */</span>
+<span class="nc">.py</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span> <span class="c">/* Name.Property */</span>
+<span class="nc">.nt</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#c82829</span> <span class="p">}</span> <span class="c">/* Name.Tag */</span>
+<span class="nc">.nv</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#c82829</span> <span class="p">}</span> <span class="c">/* Name.Variable */</span>
+<span class="nc">.ow</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#3e999f</span> <span class="p">}</span> <span class="c">/* Operator.Word */</span>
+<span class="nc">.w</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span> <span class="c">/* Text.Whitespace */</span>
+<span class="nc">.mb</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#f5871f</span> <span class="p">}</span> <span class="c">/* Literal.Number.Bin */</span>
+<span class="nc">.mf</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#f5871f</span> <span class="p">}</span> <span class="c">/* Literal.Number.Float */</span>
+<span class="nc">.mh</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#f5871f</span> <span class="p">}</span> <span class="c">/* Literal.Number.Hex */</span>
+<span class="nc">.mi</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#f5871f</span> <span class="p">}</span> <span class="c">/* Literal.Number.Integer */</span>
+<span class="nc">.mo</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#f5871f</span> <span class="p">}</span> <span class="c">/* Literal.Number.Oct */</span>
+<span class="nc">.sb</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#718c00</span> <span class="p">}</span> <span class="c">/* Literal.String.Backtick */</span>
+<span class="nc">.sc</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span> <span class="c">/* Literal.String.Char */</span>
+<span class="nc">.sd</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#8e908c</span> <span class="p">}</span> <span class="c">/* Literal.String.Doc */</span>
+<span class="nc">.s2</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#718c00</span> <span class="p">}</span> <span class="c">/* Literal.String.Double */</span>
+<span class="nc">.se</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#f5871f</span> <span class="p">}</span> <span class="c">/* Literal.String.Escape */</span>
+<span class="nc">.sh</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#718c00</span> <span class="p">}</span> <span class="c">/* Literal.String.Heredoc */</span>
+<span class="nc">.si</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#f5871f</span> <span class="p">}</span> <span class="c">/* Literal.String.Interpol */</span>
+<span class="nc">.sx</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#718c00</span> <span class="p">}</span> <span class="c">/* Literal.String.Other */</span>
+<span class="nc">.sr</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#718c00</span> <span class="p">}</span> <span class="c">/* Literal.String.Regex */</span>
+<span class="nc">.s1</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#718c00</span> <span class="p">}</span> <span class="c">/* Literal.String.Single */</span>
+<span class="nc">.ss</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#718c00</span> <span class="p">}</span> <span class="c">/* Literal.String.Symbol */</span>
+<span class="nc">.bp</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#f5871f</span> <span class="p">}</span> <span class="c">/* Name.Builtin.Pseudo */</span>
+<span class="nc">.vc</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#c82829</span> <span class="p">}</span> <span class="c">/* Name.Variable.Class */</span>
+<span class="nc">.vg</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#c82829</span> <span class="p">}</span> <span class="c">/* Name.Variable.Global */</span>
+<span class="nc">.vi</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#c82829</span> <span class="p">}</span> <span class="c">/* Name.Variable.Instance */</span>
+<span class="nc">.il</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#f5871f</span> <span class="p">}</span> <span class="c">/* Literal.Number.Integer.Long */</span>
 </pre></div>
 
 
 <h3 id="sublime-syntax-highlighter"><a name="user-content-sublime-syntax-highlighter" href="#sublime-syntax-highlighter" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Sublime Syntax Highlighter</h3>
 <p>MdPopups can also use Sublime&rsquo;s internal syntax highlighter to highlight your code.  The benefit here is that you get code highlighting in your popup that matches your current theme.  The highlighting ability is dependent upon what syntax packages you have installed in Sublime.  It also depends on whether they are enabled and mapped to a language keyword.  Pull requests are welcome to expand and keep the <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/st3/mdpopups/st_mapping.py">language mapping</a> updated.  You can also define in your <code>Preferences.sublime-settings</code> file additional mappings to either personal syntax files, or while waiting for your mapping changes to be merged and released.  See <a href="#mdpopupssublime_user_lang_map"><code>mdpopups.sublime_user_lang_map</code></a> for more info.</p>
 <p>In your CSS template it is usually a good idea to generically specify the code wrapper background colors.  With the <a href="#css-templates">CSS templates</a>, this is very easy:</p>
-<div class="codehilite"><pre><span class="nc">.highlight</span><span class="o">,</span> <span class="nc">.inline-highlight</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="cp">}}</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nc">.highlight</span><span class="o">,</span> <span class="nc">.inline-highlight</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="cp">}}</span> <span class="p">}</span>
 </pre></div>
 
 
@@ -713,28 +713,28 @@
 <p>Retrieves the style for a specific TextMate scope from a Sublime color scheme.  By specifying either <code>.foreground</code>, <code>.background</code>, or anyone of the standard TextMate scopes and then paring it with the <code>css</code> filter, all the related styles of the specified scope will be inserted into the css document.</p>
 <p><strong>Example</strong>:</p>
 <p>This:</p>
-<div class="codehilite"><pre><span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.comment&#39;</span><span class="o">|</span><span class="nf">css</span><span class="cp">}}</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.comment&#39;</span><span class="o">|</span><span class="nf">css</span><span class="cp">}}</span> <span class="p">}</span>
 </pre></div>
 
 
 <p>Might become this:</p>
-<div class="codehilite"><pre><span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#888888</span><span class="o">,</span> <span class="k">font-style</span><span class="o">:</span> <span class="k">italic</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#888888</span><span class="o">,</span> <span class="nb">font-style</span><span class="o">:</span> <span class="nb">italic</span> <span class="p">}</span>
 </pre></div>
 
 
 <p>If you need to get at a specific CSS attribute, you can specify its name in the <code>css</code> filter (available attributes are <code>color</code>, <code>background-color</code>, <code>font-style</code>, and <code>font-weight</code>).</p>
 <p>This:</p>
-<div class="codehilite"><pre><span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.comment&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;color&#39;</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.comment&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;color&#39;</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
 </pre></div>
 
 
 <p>Would then only include the color:</p>
-<div class="codehilite"><pre><span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span> <span class="k">color</span><span class="o">:</span> <span class="m">#888888</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#888888</span> <span class="p">}</span>
 </pre></div>
 
 
 <p>Some scopes might not have colors assigned to them, so multiple scopes can be defined, and the first one that matches will be used:</p>
-<div class="codehilite"><pre><span class="c">/* If `keyword.operator` is not explicitly used, fallback to `.keyword` */</span>
+<div class="codehilite"><pre><span></span><span class="c">/* If `keyword.operator` is not explicitly used, fallback to `.keyword` */</span>
 <span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.keyword.operator, .keyword&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;color&#39;</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
 </pre></div>
 
@@ -747,7 +747,7 @@
 <dd>
 <p>Convert a background to a foreground.</p>
 <p><strong>Example</strong>:<br />
-<div class="codehilite"><pre><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">foreground</span><span class="cp">}}</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">foreground</span><span class="cp">}}</span> <span class="p">}</span>
 </pre></div>
 </p>
 </dd>
@@ -755,7 +755,7 @@
 <dd>
 <p>Convert a foreground to a background.</p>
 <p><strong>Example</strong>:<br />
-<div class="codehilite"><pre><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.foreground&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;color&#39;</span><span class="o">)|</span><span class="nf">background</span><span class="cp">}}</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.foreground&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;color&#39;</span><span class="o">)|</span><span class="nf">background</span><span class="cp">}}</span> <span class="p">}</span>
 </pre></div>
 </p>
 </dd>
@@ -763,7 +763,7 @@
 <h3 id="template-color-filtering"><a name="user-content-template-color-filtering" href="#template-color-filtering" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Template Color Filtering</h3>
 <p>MdPopups also provides a number of color filters within the template environment that can manipulate the colors.  For instance, lets say you had your tooltip is the same color as the view window and it is difficult to see where the tooltip starts and ends.  You can take the color schemes background and apply a brightness filter to it allowing you now see the tooltip clearly.</p>
 <p>Here we can make the background of the tooltip darker:</p>
-<div class="codehilite"><pre><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">brightness</span><span class="o">(</span><span class="m">0.9</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">brightness</span><span class="o">(</span><span class="m">0.9</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
 </pre></div>
 
 
@@ -774,11 +774,11 @@
 <dd>
 <p>Shifts brightness either dark or lighter. Brightness is relative to 1 where 1 means no change.  Accepted values are floats that are greater than 0.  Ranges are clamped between 0 and 2.</p>
 <p><strong>Example - Darken</strong>:<br />
-<div class="codehilite"><pre><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">brightness</span><span class="o">(</span><span class="m">0.9</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">brightness</span><span class="o">(</span><span class="m">0.9</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
 </pre></div>
 </p>
 <p><strong>Example - Lighten</strong>:<br />
-<div class="codehilite"><pre><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">brightness</span><span class="o">(</span><span class="m">1.1</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">brightness</span><span class="o">(</span><span class="m">1.1</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
 </pre></div>
 </p>
 </dd>
@@ -786,11 +786,11 @@
 <dd>
 <p>Shifts the saturation either to right (saturate) or the left (desaturate).  Saturation is relative to 1 where 1 means no change.  Accepted values are floats that are greater than 0.  Ranges are clamped between 0 and 2.</p>
 <p><strong>Example - Desaturate</strong>:<br />
-<div class="codehilite"><pre><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">saturation</span><span class="o">(</span><span class="m">0.9</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">saturation</span><span class="o">(</span><span class="m">0.9</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
 </pre></div>
 </p>
 <p><strong>Example - Saturate</strong>:<br />
-<div class="codehilite"><pre><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">saturation</span><span class="o">(</span><span class="m">1.1</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">saturation</span><span class="o">(</span><span class="m">1.1</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
 </pre></div>
 </p>
 </dd>
@@ -798,7 +798,7 @@
 <dd>
 <p>Filters all colors to a grayish tone.</p>
 <p><strong>Example</strong>:<br />
-<div class="codehilite"><pre><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">grayscale</span><span class="cp">}}</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">grayscale</span><span class="cp">}}</span> <span class="p">}</span>
 </pre></div>
 </p>
 </dd>
@@ -806,7 +806,7 @@
 <dd>
 <p>Filters all colors to a sepia tone.</p>
 <p><strong>Example</strong>:<br />
-<div class="codehilite"><pre><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">sepia</span><span class="cp">}}</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">sepia</span><span class="cp">}}</span> <span class="p">}</span>
 </pre></div>
 </p>
 </dd>
@@ -814,7 +814,7 @@
 <dd>
 <p>Inverts a color.</p>
 <p><strong>Example</strong>:<br />
-<div class="codehilite"><pre><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">invert</span><span class="cp">}}</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">invert</span><span class="cp">}}</span> <span class="p">}</span>
 </pre></div>
 </p>
 </dd>
@@ -822,7 +822,7 @@
 <dd>
 <p>Filters all colors to a shade of the specified hue.  Think grayscale, but instead of gray, you define a non-gray hue.  The values are angular dimensions starting at the red primary at 0°, passing through the green primary at 120° and the blue primary at 240°, and then wrapping back to red at 360°.</p>
 <p><strong>Example</strong>:<br />
-<div class="codehilite"><pre><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">colorize</span><span class="o">(</span><span class="m">30</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">colorize</span><span class="o">(</span><span class="m">30</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
 </pre></div>
 </p>
 </dd>
@@ -830,11 +830,11 @@
 <dd>
 <p>Shifts the current hue either to the left or right.  The values are angular dimensions starting at the red primary at 0°, passing through the green primary at 120° and the blue primary at 240°, and then wrapping back to red at 360°.  Values can either be negative to shift left or positive to shift the hue to the right.</p>
 <p><strong>Example - Left Shift</strong>:<br />
-<div class="codehilite"><pre><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">hue</span><span class="o">(-</span><span class="m">30</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">hue</span><span class="o">(-</span><span class="m">30</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
 </pre></div>
 </p>
 <p><strong>Example - Left Right</strong>:<br />
-<div class="codehilite"><pre><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">hue</span><span class="o">(</span><span class="m">30</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">hue</span><span class="o">(</span><span class="m">30</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
 </pre></div>
 </p>
 </dd>
@@ -842,7 +842,7 @@
 <dd>
 <p>Fades a color. Essentially it is like apply transparency to the color allowing the color schemes base background color to show through.</p>
 <p><strong>Example - Fade 50%</strong>:<br />
-<div class="codehilite"><pre><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.foreground&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;color&#39;</span><span class="o">)|</span><span class="nf">fade</span><span class="o">(</span><span class="m">0.5</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.foreground&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;color&#39;</span><span class="o">)|</span><span class="nf">fade</span><span class="o">(</span><span class="m">0.5</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
 </pre></div>
 </p>
 </dd>
@@ -854,7 +854,7 @@
 <dd>
 <p>Retrieve a built-in Pygments color scheme.</p>
 <p><strong>Example</strong>:<br />
-<div class="codehilite"><pre><span class="cp">{{</span><span class="s1">&#39;native&#39;</span><span class="o">|</span><span class="nf">pygments</span><span class="cp">}}</span>
+<div class="codehilite"><pre><span></span><span class="cp">{{</span><span class="s1">&#39;native&#39;</span><span class="o">|</span><span class="nf">pygments</span><span class="cp">}}</span>
 </pre></div>
 </p>
 </dd>
@@ -862,7 +862,7 @@
 <dd>
 <p>Retrieve a CSS file from Sublime&rsquo;s <code>Packages</code> folder.  CSS retrieved in this manner can include template variables and filters.</p>
 <p><strong>Example</strong>:<br />
-<div class="codehilite"><pre><span class="cp">{{</span><span class="s1">&#39;Packages/User/aprosopo-dark.css&#39;</span><span class="o">|</span><span class="nf">getcss</span><span class="cp">}}</span>
+<div class="codehilite"><pre><span></span><span class="cp">{{</span><span class="s1">&#39;Packages/User/aprosopo-dark.css&#39;</span><span class="o">|</span><span class="nf">getcss</span><span class="cp">}}</span>
 </pre></div>
 </p>
 </dd>
@@ -874,7 +874,7 @@
 <dd>
 <p><code>is_dark</code> checks if the color scheme is a dark color scheme.  Alternatively, <code>is_light</code> checks if the color scheme is a light color scheme.</p>
 <p><strong>Example</strong>:<br />
-<div class="codehilite"><pre><span class="cp">{%</span> <span class="k">if</span> <span class="nv">var.is_light</span> <span class="cp">%}</span>
+<div class="codehilite"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">var.is_light</span> <span class="cp">%}</span>
 <span class="nt">html</span><span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">brightness</span><span class="o">(</span><span class="m">0.9</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
 <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
 <span class="nt">html</span><span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">brightness</span><span class="o">(</span><span class="m">1.1</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
@@ -886,7 +886,7 @@
 <dd>
 <p>Checks if the Pygments syntax highlighter is being used.</p>
 <p><strong>Example</strong>:<br />
-<div class="codehilite"><pre><span class="cp">{%</span> <span class="k">if</span> <span class="nv">var.use_pygments</span> <span class="cp">%}</span>
+<div class="codehilite"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">var.use_pygments</span> <span class="cp">%}</span>
 <span class="cp">{%</span> <span class="k">if</span> <span class="nv">var.is_light</span> <span class="cp">%}</span>
 <span class="cp">{{</span><span class="s1">&#39;default&#39;</span><span class="o">|</span><span class="nf">pygments</span><span class="cp">}}</span>
 <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
@@ -900,7 +900,7 @@
 <dd>
 <p>Retrieves the current color schemes name.</p>
 <p><strong>Example</strong>:<br />
-<div class="codehilite"><pre><span class="cp">{%</span> <span class="k">if</span> <span class="o">(</span>
+<div class="codehilite"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="o">(</span>
     <span class="nv">var.color_scheme</span> <span class="k">in</span> <span class="o">(</span>
         <span class="s1">&#39;Packages/Theme - Aprosopo/Tomorrow-Night-Eighties-Stormy.tmTheme&#39;</span><span class="o">,</span>
         <span class="s1">&#39;Packages/Theme - Aprosopo/Tomorrow-Morning.tmTheme&#39;</span><span class="o">,</span>

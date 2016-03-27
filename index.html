@@ -144,12 +144,12 @@
 <hr />
 <h2 id="overview"><a name="user-content-overview" href="#overview" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Overview</h2>
 <p>Sublime Markdown Popups (mdpopups) is a library for Sublime Text plugins.  It utilizes the new plugin API found in ST3 Beta 3080+ for generating tooltip popups.  Mdpopups utilizes Python Markdown with a couple of special extensions to convert Markdown to HTML that can be used to create popups.  It also provides a number of other helpful API commands to aid in creating great tooltips.</p>
-<p>Mdpopus provides both a dark and light CSS theme to style your popups, both of which can be overridden or extended.  Mdpopups will determine the brightness of your color scheme when deciding which theme to use.  If desired, a user can map their different color scheme files to custom tooltip CSS themes.</p>
+<p>Mdpopups will use your color scheme to create popups that fit your editors look.</p>
 <p><img alt="Screenshot" src="./images/tooltips_test.png" /></p>
 <h2 id="features"><a name="user-content-features" href="#features" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Features</h2>
 <ul>
 <li>Can take Markdown or HTML and create nice looking popup tooltips.</li>
-<li>Provides a dark and light theme.</li>
+<li>Dynamically creates popup themes from your color scheme.</li>
 <li>Uses the current Sublime color scheme of a view to create matching tooltip themes.</li>
 <li>Can create syntax highlighed code blocks easily using either Pygments or the built-in Sublime Text syntax highlighter automatically in the Markdown environment or outside via API calls.</li>
 <li>Can create color preview boxes via API calls.</li>
@@ -205,6 +205,6 @@
 </html>
 
 <!--
-MkDocs version : 0.14.0
-Build Date UTC : 2015-11-21 23:05:56.643342
+MkDocs version : 0.15.3
+Build Date UTC : 2016-03-27 05:49:49.104779
 -->
