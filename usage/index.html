@@ -453,8 +453,8 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 <td>region</td>
 <td>sublime.Region</td>
 <td>Yes</td>
-<td>Region in the view where the phantom should be inserted.</td>
 <td></td>
+<td>Region in the view where the phantom should be inserted.</td>
 </tr>
 <tr>
 <td>content</td>
@@ -661,6 +661,193 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 <div class="admonition hint">
 <p class="admonition-title">New</p>
 <p>Added in <code>1.6.0</code>.</p>
+</div>
+</dd>
+</dl>
+<h3 id="class-phantom"><a name="user-content-class-phantom" href="#class-phantom" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>class Phantom</h3>
+<dl>
+<dt>mdpopups.Phantoms</dt>
+<dd>
+<p>A phantom object for use with <a href="#class-phantomset">PhantomSet</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td>sublime.Region</td>
+<td>Yes</td>
+<td></td>
+<td>Region in the view where the phantom should be inserted.</td>
+</tr>
+<tr>
+<td>content</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Markdown/HTML content to be used to create a phantom.</td>
+</tr>
+<tr>
+<td>layout</td>
+<td>int</td>
+<td>Yes</td>
+<td></td>
+<td>How the HTML content should be inserted.  Acceptable values are: <code>sublime.LAYOUT_INLINE</code>, <code>sublime.LAYOUT_BLOCK</code>, and <code>sublime.LAYOUT_BELOW</code>.</td>
+</tr>
+<tr>
+<td>md</td>
+<td>bool</td>
+<td>No</td>
+<td>True</td>
+<td>Defines whether the content is Markdown and needs to be converterted.</td>
+</tr>
+<tr>
+<td>css</td>
+<td>string</td>
+<td>No</td>
+<td>None</td>
+<td>Additional CSS that will be injected.</td>
+</tr>
+<tr>
+<td>on_navigate</td>
+<td>function</td>
+<td>No</td>
+<td>None</td>
+<td>Callback that receives one variable <code>href</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Attributes</strong></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>region</td>
+<td>sublime.Region</td>
+<td>Region in the view where the phantom should be inserted.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>content</td>
+<td>string</td>
+<td>Markdown/HTML content to be used to create a phantom.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>layout</td>
+<td>int</td>
+<td>How the HTML content should be inserted.  Acceptable values are: <code>sublime.LAYOUT_INLINE</code>, <code>sublime.LAYOUT_BLOCK</code>, and <code>sublime.LAYOUT_BELOW</code>.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>md</td>
+<td>bool</td>
+<td>Defines whether the content is Markdown and needs to be converterted.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>css</td>
+<td>string</td>
+<td>Additional CSS that will be injected.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>on_navigate</td>
+<td>function</td>
+<td>Callback that receives one variable <code>href</code>.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="admonition-title">New</p>
+<p>Added in <code>1.6.1</code>.</p>
+</div>
+</dd>
+</dl>
+<h3 id="class-phantomset"><a name="user-content-class-phantomset" href="#class-phantomset" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>class PhantomSet</h3>
+<dl>
+<dt>mdpopups.PhantomsSet</dt>
+<dd>
+<p>A class that allows you to update phantoms under the specified key.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>view</td>
+<td>sublime.View</td>
+<td>Yes</td>
+<td></td>
+<td>A Sublime Text view object.</td>
+</tr>
+<tr>
+<td>key</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>The key that should be associated with all related phantoms in the set.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Methods</strong></p>
+<dl>
+<dt>mdpopups.PhantomsSet.update</dt>
+<dd>
+<p>Update all the phantoms in the set with the given phantom list.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new_phantoms</td>
+<td>[<a href="#class-phantom">mdpopups.Phantom</a>]</td>
+<td>Yes</td>
+<td></td>
+<td>A list of mdpopup phantoms (don&rsquo;t use sublime.Phantoms).</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<div class="admonition hint">
+<p class="admonition-title">New</p>
+<p>Added in <code>1.6.1</code>.</p>
 </div>
 </dd>
 </dl>
