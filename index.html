@@ -3,7 +3,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Popup tooltips for Sublime generated with Markdown.">
+  
   
   <title>Sublime Markdown Popups Documentation</title>
   
@@ -18,6 +21,14 @@
   <link rel="stylesheet" href="./css/theme_custom.css" type="text/css" />
   <link rel="stylesheet" href="./css/highlight.css">
 
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "None";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = "/";
+  </script>
+  
   <script src="./js/jquery-2.1.1.min.js"></script>
   <script src="./js/modernizr-2.8.3.min.js"></script>
   <script src="./js/theme.js"></script> 
@@ -143,17 +154,16 @@
 <p>Popup tooltips for Sublime generated with Markdown.</p>
 <hr />
 <h2 id="overview"><a name="user-content-overview" href="#overview" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Overview</h2>
-<p>Sublime Markdown Popups (mdpopups) is a library for Sublime Text plugins.  It utilizes the new plugin API found in ST3 Beta 3080+ for generating tooltip popups.  Mdpopups utilizes Python Markdown with a couple of special extensions to convert Markdown to HTML that can be used to create popups.  It also provides a number of other helpful API commands to aid in creating great tooltips.</p>
-<p>Mdpopups will use your color scheme to create popups that fit your editors look.</p>
+<p>Sublime Markdown Popups (mdpopups) is a library for Sublime Text plugins.  It utilizes the new plugin API found in ST3 Beta 3080+ for generating tooltip popups. It also provides API methods for generating and styling the new phantom elements introduced in ST3 Beta 3118+.  Mdpopups utilizes Python Markdown with a couple of special extensions to convert Markdown to HTML that can be used to create the popups and/or phantoms.  It also provides a number of other helpful API commands to aid in creating great tooltips and phantoms.</p>
+<p>Mdpopups will use your color scheme to create popups/phantoms that fit your editors look.</p>
 <p><img alt="Screenshot" src="./images/tooltips_test.png" /></p>
 <h2 id="features"><a name="user-content-features" href="#features" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Features</h2>
 <ul>
-<li>Can take Markdown or HTML and create nice looking popup tooltips.</li>
-<li>Dynamically creates popup themes from your color scheme.</li>
-<li>Uses the current Sublime color scheme of a view to create matching tooltip themes.</li>
+<li>Can take Markdown or HTML and create nice looking popup tooltips and phantoms.</li>
+<li>Dynamically creates popup and phantom themes from your current Sublime color scheme.</li>
 <li>Can create syntax highlighed code blocks easily using either Pygments or the built-in Sublime Text syntax highlighter automatically in the Markdown environment or outside via API calls.</li>
 <li>Can create color preview boxes via API calls.</li>
-<li>A CSS template environment that allows users to override and tweak the overall look of the tooltip theme to better fit their preferred look.  Using the template filters, users can generically access color scheme colors and manipulate them.</li>
+<li>A CSS template environment that allows users to override and tweak the overall look of the tooltip and phantom themes to better fit their preferred look.  Using the template filters, users can generically access color scheme colors and manipulate them.</li>
 <li>Plugins can extend the current CSS to inject plugin specific class styling.  Extended CSS will be run through the template environment.</li>
 </ul>
               
@@ -163,7 +173,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="installation/" class="btn btn-neutral float-right" title="Installation"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="installation/" class="btn btn-neutral float-right" title="Installation">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
     </div>
@@ -172,11 +182,10 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>
+    <!-- Copyright etc -->
     
-    Copyright &copy; 2015 <a href="https://github.com/facelessuser">Isaac Muse</a>
+      <p>Copyright &copy; 2015 <a href="https://github.com/facelessuser">Isaac Muse</a></p>
     
-    </p>
   </div>
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -192,7 +201,7 @@
 <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/facelessuser/sublime-markdown-popups" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
       
@@ -206,5 +215,5 @@
 
 <!--
 MkDocs version : 0.15.3
-Build Date UTC : 2016-03-27 05:49:49.104779
+Build Date UTC : 2016-07-01 03:59:41.986703
 -->

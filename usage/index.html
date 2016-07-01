@@ -3,7 +3,10 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
   
   <title>User Guide - Sublime Markdown Popups Documentation</title>
   
@@ -18,6 +21,14 @@
   <link rel="stylesheet" href="../css/theme_custom.css" type="text/css" />
   <link rel="stylesheet" href="../css/highlight.css">
 
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "User Guide";
+    var mkdocs_page_input_path = "usage.md";
+    var mkdocs_page_url = "/usage/";
+  </script>
+  
   <script src="../js/jquery-2.1.1.min.js"></script>
   <script src="../js/modernizr-2.8.3.min.js"></script>
   <script src="../js/theme.js"></script> 
@@ -72,6 +83,8 @@
                     <li><a class="toctree-l4" href="#api-usage">API Usage</a></li>
                 
                     <li><a class="toctree-l4" href="#update_popup">update_popup</a></li>
+                
+                    <li><a class="toctree-l4" href="#get_language_from_view">get_language_from_view</a></li>
                 
                     <li><a class="toctree-l4" href="#global-user-settings">Global User Settings</a></li>
                 
@@ -173,7 +186,7 @@
 
 
 <h2 id="markdown-support"><a name="user-content-markdown-support" href="#markdown-support" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Markdown Support</h2>
-<p>MdPopups uses <a href="https://pythonhosted.org/Markdown/">Python Markdown</a> to parse Markdown and transform it into a tooltip.  The Markdown environment supports basic Markdown features, but also includes a number of specialty extensions to enhance the environment.  To keep the experience standardized for plugin use, tweaking the Markdown settings is not allowed.</p>
+<p>MdPopups uses <a href="https://pythonhosted.org/Markdown/">Python Markdown</a> to parse Markdown and transform it into a tooltip or a phantom (HTML embedded in your file view).  The Markdown environment supports basic Markdown features, but also includes a number of specialty extensions to enhance the environment.  To keep the experience standardized for plugin use, tweaking the Markdown settings is not allowed.</p>
 <p>MdPopups enables the following Python Markdown extensions:</p>
 <ul>
 <li><a href="https://pythonhosted.org/Markdown/extensions/attr_list.html">attr_list</a> allows you to add HTML attributes to block and inline elements easily.</li>
@@ -182,7 +195,7 @@
 <li><a href="https://pythonhosted.org/Markdown/extensions/admonition.html">admonition</a> provides admonition blocks.</li>
 <li><a href="https://pythonhosted.org/Markdown/extensions/code_hilite.html">codehilite</a> provides syntax highlighted blocks.</li>
 </ul>
-<p>MdPopups also includes a couple 3<sup>rd</sup> party extensions (some of which have been modified to work better in the Sublime Text environment).</p>
+<p>MdPopups also includes a couple of 3<sup>rd</sup> party extensions (some of which have been modified to work better in the Sublime Text environment).</p>
 <ul>
 <li><a href="http://facelessuser.github.io/pymdown-extensions/extensions/superfences/">superfences</a> provides support for nested fenced blocks. UML support is disabled.</li>
 <li><a href="http://facelessuser.github.io/pymdown-extensions/extensions/betterem/">betterem</a> is extension that aims to improve emphasis support in Python Markdown. MdPopups leaves it configured in its default state where underscores are handled intelligently: <code>_handled_intelligently_</code> &rarr; <em>handled_intelligently</em>.  Asterisks can be used to do mid word emphasis: <code>em*pha*sis</code> &rarr; em<em>pha</em>sis.</li>
@@ -193,7 +206,7 @@
 <p>MdPopups provides a handful of accessible functions.</p>
 <h3 id="version"><a name="user-content-version" href="#version" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>version</h3>
 <dl>
-<dt>mdpopups.version</dt>
+<dt>(int,) mdpopups.version</dt>
 <dd>Get the version of the MdPopups library.  Returns a tuple of integers which represents the major, minor, and patch version.</dd>
 </dl>
 <h3 id="show_popup"><a name="user-content-show_popup" href="#show_popup" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>show_popup</h3>
@@ -284,11 +297,10 @@
 </tr>
 </tbody>
 </table>
-</dd>
-</dl>
 <div class="admonition caution">
 <p class="admonition-title">Developers Guidelines</p>
 <p>If injecting your own CSS classes from a plugin, please namespace them by either giving them a very unique name (preferably with the plugin&rsquo;s name as part of the class) or use an additional namespace class (preferably with the plugin&rsquo;s name) and a specific class.  This way a user can target and override your class styling if desired.</p>
+</div>
 <p><strong>Example - Unique Class Name</strong>:<br />
 <div class="codehilite"><pre><span></span><span class="nc">.myplugin-myclass</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
 </pre></div>
@@ -297,8 +309,9 @@
 <div class="codehilite"><pre><span></span><span class="nc">.myplugin.myclass</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
 </pre></div>
 </p>
-<p>Also, do not try to override the style of existing base classes and elements with plugin injection, but use custom plugin classes so that you will only target what your plugin as specifically added special classes to.</p>
-</div>
+<p>Also, do not try to override the style of existing base classes and elements with plugin injection, but use custom plugin classes so that you will only target what your plugin has specifically added special classes to.</p>
+</dd>
+</dl>
 <h2 id="update_popup"><a name="user-content-update_popup" href="#update_popup" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>update_popup</h2>
 <dl>
 <dt>mdpopups.update_popup</dt>
@@ -372,6 +385,283 @@
 </tr>
 </tbody>
 </table>
+</dd>
+</dl>
+<h3 id="is_popup_visible"><a name="user-content-is_popup_visible" href="#is_popup_visible" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>is_popup_visible</h3>
+<dl>
+<dt>bool mdpopups.is_popup_visible</dt>
+<dd>
+<p>Checks if popup is visible in the view. Included for convenience and consistency.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>view</td>
+<td>sublime.View</td>
+<td>Yes</td>
+<td></td>
+<td>A Sublime Text view object.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="admonition-title">New</p>
+<p>Added in <code>1.6.0</code>.</p>
+</div>
+</dd>
+</dl>
+<h3 id="add_phantom"><a name="user-content-add_phantom" href="#add_phantom" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>add_phantom</h3>
+<dl>
+<dt>int mdpopups.add_phantom</dt>
+<dd>
+<p>Adds a phantom (embedded HTML in the file view) and returns the phantom id.  Returns an integer.<br />
+Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).  By default, the Pygments syntax highlighter will be used for code highlighting.  Set <a href="#mdpopupsuse_sublime_highlighter"><code>mdpopups.use_sublime_highlighter</code></a> to <code>true</code> in your <code>Preferences.sublime-settings</code> file if you would like to use the Sublime syntax highlighter.  On completion of the phantom, the function will return the phantom id which is an integer.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>view</td>
+<td>sublime.View</td>
+<td>Yes</td>
+<td></td>
+<td>A Sublime Text view object.</td>
+</tr>
+<tr>
+<td>key</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>A key that is associated with the given phantom.  Multiple phantoms can share the same key, but each phantom will have its own id.</td>
+</tr>
+<tr>
+<td>region</td>
+<td>sublime.Region</td>
+<td>Yes</td>
+<td>Region in the view where the phantom should be inserted.</td>
+<td></td>
+</tr>
+<tr>
+<td>content</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>Markdown/HTML content to be used to create a phantom.</td>
+</tr>
+<tr>
+<td>layout</td>
+<td>int</td>
+<td>Yes</td>
+<td></td>
+<td>How the HTML content should be inserted.  Acceptable values are: <code>sublime.LAYOUT_INLINE</code>, <code>sublime.LAYOUT_BLOCK</code>, and <code>sublime.LAYOUT_BELOW</code>.</td>
+</tr>
+<tr>
+<td>md</td>
+<td>bool</td>
+<td>No</td>
+<td>True</td>
+<td>Defines whether the content is Markdown and needs to be converterted.</td>
+</tr>
+<tr>
+<td>css</td>
+<td>string</td>
+<td>No</td>
+<td>None</td>
+<td>Additional CSS that will be injected.</td>
+</tr>
+<tr>
+<td>on_navigate</td>
+<td>function</td>
+<td>No</td>
+<td>None</td>
+<td>Callback that receives one variable <code>href</code>.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition caution">
+<p class="admonition-title">Developers Guidelines</p>
+<p>If injecting your own CSS classes from a plugin, please namespace them by either giving them a very unique name (preferably with the plugin&rsquo;s name as part of the class) or use an additional namespace class (preferably with the plugin&rsquo;s name) and a specific class.  This way a user can target and override your class styling if desired.</p>
+</div>
+<p><strong>Example - Unique Class Name</strong>:<br />
+<div class="codehilite"><pre><span></span><span class="nc">.myplugin-myclass</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+</pre></div>
+</p>
+<p><strong>Example - Namespace Class</strong>:<br />
+<div class="codehilite"><pre><span></span><span class="nc">.myplugin.myclass</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+</pre></div>
+</p>
+<p>Also, do not try to override the style of existing base classes and elements with plugin injection, but use custom plugin classes so that you will only target what your plugin has specifically added special classes to.</p>
+<div class="admonition hint">
+<p class="admonition-title">New</p>
+<p>Added in <code>1.6.0</code>.</p>
+</div>
+</dd>
+</dl>
+<h3 id="erase_phantoms"><a name="user-content-erase_phantoms" href="#erase_phantoms" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>erase_phantoms</h3>
+<dl>
+<dt>mdpopups.erase_phantoms</dt>
+<dd>
+<p>Erase all phantoms associated to the given key.  Included for convenience and consistency.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>view</td>
+<td>sublime.View</td>
+<td>Yes</td>
+<td></td>
+<td>A Sublime Text view object.</td>
+</tr>
+<tr>
+<td>key</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>A key that is associated with phantoms.  Multiple phantoms can share the same key, but each phantom will have its own id.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="admonition-title">New</p>
+<p>Added in <code>1.6.0</code>.</p>
+</div>
+</dd>
+</dl>
+<h3 id="erase_phantom_by_id"><a name="user-content-erase_phantom_by_id" href="#erase_phantom_by_id" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>erase_phantom_by_id</h3>
+<dl>
+<dt>mdpopups.erase_phantom_by_id</dt>
+<dd>
+<p>Erase a single phantom by passing its id.  Included for convenience and consistency.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>view</td>
+<td>sublime.View</td>
+<td>Yes</td>
+<td></td>
+<td>A Sublime Text view object.</td>
+</tr>
+<tr>
+<td>pid</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>The id associated with a single phantom.  Multiple phantoms can share the same key, but each phantom will have its own id.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="admonition-title">New</p>
+<p>Added in <code>1.6.0</code>.</p>
+</div>
+</dd>
+</dl>
+<h3 id="query_phantom"><a name="user-content-query_phantom" href="#query_phantom" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>query_phantom</h3>
+<dl>
+<dt>[sublime.Region] mdpopups.query_phantom</dt>
+<dd>
+<p>Query the location of a phantom by specifying its id.  A list of <code>sublime.Region</code>s will be returned.  If the phantom with the given id is not found, the region will be returned with positions of <code>(-1, -1)</code>.  Included for convenience and consistency.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>view</td>
+<td>sublime.View</td>
+<td>Yes</td>
+<td></td>
+<td>A Sublime Text view object.</td>
+</tr>
+<tr>
+<td>pid</td>
+<td>int</td>
+<td>Yes</td>
+<td></td>
+<td>The id associated with a single phantom.  Multiple phantoms can share the same key, but each phantom will have its own id.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="admonition-title">New</p>
+<p>Added in <code>1.6.0</code>.</p>
+</div>
+</dd>
+</dl>
+<h3 id="query_phantoms"><a name="user-content-query_phantoms" href="#query_phantoms" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>query_phantoms</h3>
+<dl>
+<dt>[sublime.Region] mdpopups.query_phantoms</dt>
+<dd>
+<p>Query the location of multiple phantoms by specifying their ids.  A list of <code>sublime.Region</code>s will be returned where each index corresponds to the index of ids that was passed in.  If a given phantom id is not found, that region will be returned with positions of <code>(-1, -1)</code>.  Included for convenience and consistency.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>view</td>
+<td>sublime.View</td>
+<td>Yes</td>
+<td></td>
+<td>A Sublime Text view object.</td>
+</tr>
+<tr>
+<td>pids</td>
+<td>[int]</td>
+<td>Yes</td>
+<td></td>
+<td>The id associated with a single phantom.  Multiple phantoms can share the same key, but each phantom will have its own id.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="admonition-title">New</p>
+<p>Added in <code>1.6.0</code>.</p>
+</div>
 </dd>
 </dl>
 <h3 id="clear_cache"><a name="user-content-clear_cache" href="#clear_cache" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>clear_cache</h3>
@@ -551,6 +841,33 @@
 </table>
 </dd>
 </dl>
+<h2 id="get_language_from_view"><a name="user-content-get_language_from_view" href="#get_language_from_view" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>get_language_from_view</h2>
+<dl>
+<dt>mdpopups.get_language_from_view</dt>
+<dd>
+<p>Allows a user to extract the equivalent language specifier for <code>mdpopups.syntax_highlight</code> from a view.  If the language cannot be determined, <code>None</code> will be returned.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>view</td>
+<td>sublime.View</td>
+<td>Yes</td>
+<td></td>
+<td>Sublime text View object.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
 <h2 id="global-user-settings"><a name="user-content-global-user-settings" href="#global-user-settings" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Global User Settings</h2>
 <p>All settings for <code>MdPopups</code> are placed in Sublime&rsquo;s <code>Preferences.sublime-settings</code>.  They are global and work no for whatever plugin uses the MdPopups API.</p>
 <h3 id="mdpopupsdebug"><a name="user-content-mdpopupsdebug" href="#mdpopupsdebug" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups.debug</h3>
@@ -700,9 +1017,9 @@
 
 
 <h2 id="css-styling"><a name="user-content-css-styling" href="#css-styling" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CSS Styling</h2>
-<p>MdPopups was design to give a universal way of displaying and styling tooltips via plugins, but also provide the user an easy way to control the look.</p>
-<p>MdPopups provides a simple base CSS that styles the basic HTML tags that can be used in the Markdown parser.  On top of that it then parses your current Sublime color scheme and generates CSS that includes styling for all the <a href="../textmate_scopes/">standard TextMate scopes</a> (and only those listed scopes) found in your color scheme.  It then uses those scopes via in a default template to highlight your tooltips to match your current color scheme.</p>
-<p>Templates are used so that a user can easily tap into all the colors, color filters, and other usefull logic to control their tooltips in one place without having to hard code a specific CSS for a specific color scheme.  Even though a plugin can additionally insert new scopes on demand when calling the popup API, a user can override anything and everything by providing their own <a href="#mdpopupsuser_css">CSS template</a>.  The template is fairly powerful and flexible.</p>
+<p>MdPopups was design to give a universal way of displaying and styling tooltips and phantoms via plugins, but also provide the user an easy way to control the look.</p>
+<p>MdPopups provides a simple base CSS that styles the basic HTML tags that can be used in the Markdown parser.  On top of that it then parses your current Sublime color scheme and generates CSS that includes styling for all the <a href="../textmate_scopes/">standard TextMate scopes</a> (and only those listed scopes) found in your color scheme.  It then uses those scopes in a default template to highlight your tooltips and phantoms to match your current color scheme.</p>
+<p>Templates are used so that a user can easily tap into all the colors, color filters, and other useful logic to control their tooltips and phantoms in one place without having to hard code a specific CSS for a specific color scheme.  Even though a plugin can additionally insert new scopes on demand when calling the popup API, a user can override anything and everything by providing their own <a href="#mdpopupsuser_css">CSS template</a>.  The template is fairly powerful and flexible.</p>
 <h2 id="css-templates"><a name="user-content-css-templates" href="#css-templates" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CSS Templates</h2>
 <p>MdPoups provides a <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/css/base.css"><code>base.css</code></a> that formats the general look of the HTML elements (padding, size, etc.).  On top of that, it provides a <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/css/default.css"><code>default.css</code></a> template which applies more superficial styling such as colors, Pygments themes, etc.  It uses the Jinja2 template environment to give direct access to things like color scheme colors, names, and other useful information.  In general, <code>default.css</code> should provide most of what everyone <strong>needs</strong>.  But if you <strong>want</strong> greater control, you can create your own CSS template which MdPopups will use instead of <code>default.css</code>.</p>
 <h3 id="template-colors"><a name="user-content-template-colors" href="#template-colors" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Template Colors</h3>
@@ -761,7 +1078,7 @@
 </dd>
 </dl>
 <h3 id="template-color-filtering"><a name="user-content-template-color-filtering" href="#template-color-filtering" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Template Color Filtering</h3>
-<p>MdPopups also provides a number of color filters within the template environment that can manipulate the colors.  For instance, lets say you had your tooltip is the same color as the view window and it is difficult to see where the tooltip starts and ends.  You can take the color schemes background and apply a brightness filter to it allowing you now see the tooltip clearly.</p>
+<p>MdPopups also provides a number of color filters within the template environment that can manipulate the colors.  For instance, lets say you had your tooltip in the same color as the view window and it was difficult to see where the tooltip starts and ends.  You can take the color schemes background and apply a brightness filter to it allowing you now see the tooltip clearly.</p>
 <p>Here we can make the background of the tooltip darker:</p>
 <div class="codehilite"><pre><span></span><span class="nt">body</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">brightness</span><span class="o">(</span><span class="m">0.9</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
 </pre></div>
@@ -882,6 +1199,18 @@
 </pre></div>
 </p>
 </dd>
+<dt>var.is_popup | var.is_phantom</dt>
+<dd>
+<p><code>is_phantom</code> checks if the current CSS is for a phantom instead of a popup.  Alternatively, <code>is_popup</code> checks if the current use of the CSS is for a popup.</p>
+<p><strong>Example</strong>:<br />
+<div class="codehilite"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">var.is_phantom</span> <span class="cp">%}</span>
+<span class="nt">html</span><span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">brightness</span><span class="o">(</span><span class="m">0.9</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
+<span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+<span class="nt">html</span><span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.background&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;background-color&#39;</span><span class="o">)|</span><span class="nf">brightness</span><span class="o">(</span><span class="m">1.1</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+</pre></div>
+</p>
+</dd>
 <dt>var.use_pygments</dt>
 <dd>
 <p>Checks if the Pygments syntax highlighter is being used.</p>
@@ -921,7 +1250,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../textmate_scopes/" class="btn btn-neutral float-right" title="TextMate Scopes"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../textmate_scopes/" class="btn btn-neutral float-right" title="TextMate Scopes">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../installation/" class="btn btn-neutral" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -932,11 +1261,10 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>
+    <!-- Copyright etc -->
     
-    Copyright &copy; 2015 <a href="https://github.com/facelessuser">Isaac Muse</a>
+      <p>Copyright &copy; 2015 <a href="https://github.com/facelessuser">Isaac Muse</a></p>
     
-    </p>
   </div>
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -952,7 +1280,7 @@
 <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/facelessuser/sublime-markdown-popups" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
