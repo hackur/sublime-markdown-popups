@@ -892,7 +892,7 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 </dl>
 <h3 id="color_box"><a name="user-content-color_box" href="#color_box" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>color_box</h3>
 <dl>
-<dt>mdpopups.color_box</dt>
+<dt>string mdpopups.color_box</dt>
 <dd>
 <p>Generates a color preview box image encoded in base64 and formated to be inserted right in your your Markdown or HTML code as an <code>img</code> tag.</p>
 <table>
@@ -980,6 +980,273 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 </table>
 </dd>
 </dl>
+<h3 id="color_box_raw"><a name="user-content-color_box_raw" href="#color_box_raw" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>color_box_raw</h3>
+<dl>
+<dt>bytes mdpopups.color_box</dt>
+<dd>
+<p>Generates a color preview box image and returns the raw byte string of the image.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>colors</td>
+<td>[string]</td>
+<td>Yes</td>
+<td></td>
+<td>A list of color strings formatted as <code>#RRGGBBAA</code> where <code>R</code> is the red channel, <code>G</code> is the green channel, <code>B</code> is the blue channel, and <code>A</code> is the alpha channel.</td>
+</tr>
+<tr>
+<td>border</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>The color for the color box border.  Input is a RGB color formatted as <code>#RRGGBB</code>.</td>
+</tr>
+<tr>
+<td>border2</td>
+<td>string</td>
+<td>No</td>
+<td>None</td>
+<td>The optional secondary border color.  This is great if you are going to have it on a light and dark backgrounds.  You can use a double border so the color stands out regardless of the background.  Input is a RGB color formatted as <code>#RRGGBB</code>.</td>
+</tr>
+<tr>
+<td>height</td>
+<td>int</td>
+<td>No</td>
+<td>32</td>
+<td>Height of color box.</td>
+</tr>
+<tr>
+<td>width</td>
+<td>int</td>
+<td>No</td>
+<td>32</td>
+<td>Width of color box.</td>
+</tr>
+<tr>
+<td>border_size</td>
+<td>int</td>
+<td>No</td>
+<td>1</td>
+<td>Width of the color box border.  If using <code>border2</code>, the value should be set to at least 2 to see both colors.</td>
+</tr>
+<tr>
+<td>check_size</td>
+<td>int</td>
+<td>No</td>
+<td>4</td>
+<td>Size of checkered box squares used for the background of transparent colors.</td>
+</tr>
+<tr>
+<td>max_colors</td>
+<td>int</td>
+<td>No</td>
+<td>5</td>
+<td>Max number of colors that will be evaluated in the <code>colors</code> parameter.  Multiple colors are used to to create palette boxes showing multiple colors lined up horizontally.</td>
+</tr>
+<tr>
+<td>alpha</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Will create color box images with a real alpha channel instead of simulating one with a checkered background.</td>
+</tr>
+<tr>
+<td>border_map</td>
+<td>int</td>
+<td>No</td>
+<td>0xF</td>
+<td>A mapping of which borders to show.  Where <code>0x1</code> is <code>TOP</code>, <code>0x2</code> is <code>LEFT</code>, <code>0x4</code> is <code>BOTTOM</code>, <code>0x8</code> is <code>RIGHT</code>.  Map flags can be accessed via <code>mdpopups.colorbox.TOP</code> etc.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="admonition-title">New</p>
+<p>Added in <code>1.7.0</code>.</p>
+</div>
+</dd>
+</dl>
+<h3 id="tint"><a name="user-content-tint" href="#tint" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>tint</h3>
+<dl>
+<dt>string mdpopups.tint</dt>
+<dd>
+<p>Takes a either a path to an png or a byte string of a png and tints it with a specific color and returns a string containing the base64 encoded png in an HTML element.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>img</td>
+<td>string/bytes</td>
+<td>Yes</td>
+<td></td>
+<td>Either a string in the form <code>Packages/Package/resource.png</code> or a byte string of a png image.</td>
+</tr>
+<tr>
+<td>color</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>A string in the form of <code>#RRGGBB</code> or <code>#RRGGBBAA</code> (alpha layer will be stripped and ignored and is only allowed to make it easy to pass in colors from a color scheme).</td>
+</tr>
+<tr>
+<td>opacity</td>
+<td>int</td>
+<td>No</td>
+<td>255</td>
+<td>An integer value between 0 - 255 that specifies the opacity of the tint.</td>
+</tr>
+<tr>
+<td>height</td>
+<td>int</td>
+<td>No</td>
+<td>None</td>
+<td>Height that should be specified in the return HTML element.</td>
+</tr>
+<tr>
+<td>width</td>
+<td>int</td>
+<td>No</td>
+<td>None</td>
+<td>Width that should be specified in the return HTML element.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="admonition-title">New</p>
+<p>Added in <code>1.7.0</code>.</p>
+</div>
+</dd>
+</dl>
+<h3 id="tint_raw"><a name="user-content-tint_raw" href="#tint_raw" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>tint_raw</h3>
+<dl>
+<dt>bytes mdpopups.tint_raw</dt>
+<dd>
+<p>Takes a either a path to an png or a byte string of a png and tints it with a specific color and returns a byte string of the modified png.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>img</td>
+<td>string/bytes</td>
+<td>Yes</td>
+<td></td>
+<td>Either a string in the form <code>Packages/Package/resource.png</code> or a byte string of a png image.</td>
+</tr>
+<tr>
+<td>color</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>A string in the form of <code>#RRGGBB</code> or <code>#RRGGBBAA</code> (alpha layer will be stripped and ignored and is only allowed to make it easy to pass in colors from a color scheme).</td>
+</tr>
+<tr>
+<td>opacity</td>
+<td>int</td>
+<td>No</td>
+<td>255</td>
+<td>An integer value between 0 - 255 that specifies the opacity of the tint.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="admonition-title">New</p>
+<p>Added in <code>1.7.0</code>.</p>
+</div>
+</dd>
+</dl>
+<h3 id="scope2style"><a name="user-content-scope2style" href="#scope2style" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>scope2style</h3>
+<dl>
+<dt>dict mdpopups.scope2style</dt>
+<dd>
+<p>Takes a sublime scope (complexity doesn&rsquo;t matter), and guesses the style that would be applied.  While there may be untested corner cases with complex scopes where it fails, in general, it is usually accurate.  The returned dictionary is in the form:</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="c1"># Colors will be None if not found,</span>
+    <span class="c1"># though usually, even if the scope has no color</span>
+    <span class="c1"># it will return the overall theme foreground.</span>
+    <span class="c1">#</span>
+    <span class="c1"># Background might be None if using `explicit_background`</span>
+    <span class="c1"># as it only returns a background if that style specifically</span>
+    <span class="c1"># defines a background.</span>
+    <span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;#RRGGBB&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;background&quot;</span><span class="p">:</span> <span class="s2">&quot;#RRGGBB&quot;</span><span class="p">,</span>
+    <span class="c1"># Style will usually be either &#39;bold&#39;, &#39;italic&#39;.</span>
+    <span class="c1"># Multiple styles may be returned &#39;bold italic&#39; or an empty string &#39;&#39;.</span>
+    <span class="s2">&quot;style&quot;</span><span class="p">:</span> <span class="s1">&#39;bold italic&#39;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>view</td>
+<td>sublime.View</td>
+<td>Yes</td>
+<td></td>
+<td>Sublime text View object so that the correct color scheme will be searched.</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>string</td>
+<td>Yes</td>
+<td></td>
+<td>The scope to search for.</td>
+</tr>
+<tr>
+<td>selected</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Whether this scope is in a selected state (selected text).</td>
+</tr>
+<tr>
+<td>explicit_background</td>
+<td>bool</td>
+<td>No</td>
+<td>False</td>
+<td>Only return a background if one is explicitly defined in the color scheme.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition hint">
+<p class="admonition-title">New</p>
+<p>Added in <code>1.7.0</code>.</p>
+</div>
+</dd>
+</dl>
 <h3 id="syntax_highlight"><a name="user-content-syntax_highlight" href="#syntax_highlight" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>syntax_highlight</h3>
 <dl>
 <dt>mdpopups.syntax_highlight</dt>
@@ -1058,8 +1325,8 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 <h2 id="global-user-settings"><a name="user-content-global-user-settings" href="#global-user-settings" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Global User Settings</h2>
 <p>All settings for <code>MdPopups</code> are placed in Sublime&rsquo;s <code>Preferences.sublime-settings</code>.  They are global and work no for whatever plugin uses the MdPopups API.</p>
 <h3 id="mdpopupsdebug"><a name="user-content-mdpopupsdebug" href="#mdpopupsdebug" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups.debug</h3>
-<p>Turns on debug mode.  This will dump out all sorts of info to the console.  Such as content before parsing to HTML, final HTML output, etc.  This is more useful for plugin developers.</p>
-<div class="codehilite"><pre><span></span>    <span class="s2">&quot;mdpopups.debug&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<p>Turns on debug mode.  This will dump out all sorts of info to the console.  Content before parsing to HTML, final HTML output, traceback from failures, etc..  This is more useful for plugin developers.  It works by specifying an error level.  <code>0</code> or <code>false</code> would disable it.  1 would trigger on errors. 2 would trigger on warnings and any level below.  3 would be general info (like HTML output) and any level below.</p>
+<div class="codehilite"><pre><span></span>    <span class="s2">&quot;mdpopups.debug&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
 </pre></div>
 
 
@@ -1209,6 +1476,60 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 <p>Templates are used so that a user can easily tap into all the colors, color filters, and other useful logic to control their tooltips and phantoms in one place without having to hard code a specific CSS for a specific color scheme.  Even though a plugin can additionally insert new scopes on demand when calling the popup API, a user can override anything and everything by providing their own <a href="#mdpopupsuser_css">CSS template</a>.  The template is fairly powerful and flexible.</p>
 <h2 id="css-templates"><a name="user-content-css-templates" href="#css-templates" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CSS Templates</h2>
 <p>MdPoups provides a <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/css/base.css"><code>base.css</code></a> that formats the general look of the HTML elements (padding, size, etc.).  On top of that, it provides a <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/css/default.css"><code>default.css</code></a> template which applies more superficial styling such as colors, Pygments themes, etc.  It uses the Jinja2 template environment to give direct access to things like color scheme colors, names, and other useful information.  In general, <code>default.css</code> should provide most of what everyone <strong>needs</strong>.  But if you <strong>want</strong> greater control, you can create your own CSS template which MdPopups will use instead of <code>default.css</code>.</p>
+<h3 id="sizes-relative-to-views-font-size"><a name="user-content-sizes-relative-to-views-font-size" href="#sizes-relative-to-views-font-size" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Sizes Relative to View&rsquo;s Font Size</h3>
+<p>Sizes can be defined relative to the current Sublime file view&rsquo;s font size.  An example would be ensuring font sizes in a popup or phantom match the size of the font in the Sublime Text file view.  The sizes that can be adjusted are <code>pt</code>, <code>em</code>, <code>px</code>.</p>
+<dl>
+<dt>relativesize</dt>
+<dd>
+<p>Takes a relative specifier and inserts the size in the provided unit relative to the font size in the current Sublime Text file view. The filter is applied to a string that consists of a leading relative operator <code>+</code>, <code>-</code>, or <code>*</code> and then a positive number.  The <code>relativesize</code> call takes the type <code>em</code>, <code>px</code>, or <code>pt</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+</code></td>
+<td>Adds the specified value to the current font size.</td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>Subtracts the specified value from the current font size.</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>Multiplies the value to the current font size. This allows both dividing and multiplying the font size by a given factor.  To cut in half: <code>*.5</code>.  To double the size <code>*2</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>:</p>
+<div class="codehilite"><pre><span></span><span class="nt">h1</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="cp">{{</span><span class="s1">&#39;+.375&#39;</span><span class="o">|</span><span class="nf">relativesize</span><span class="o">(</span><span class="s1">&#39;em&#39;</span><span class="o">)</span><span class="cp">}}</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">h2</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="cp">{{</span><span class="s1">&#39;+.3&#39;</span><span class="o">|</span><span class="nf">relativesize</span><span class="o">(</span><span class="s1">&#39;em&#39;</span><span class="o">)</span><span class="cp">}}</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">h3</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="cp">{{</span><span class="s1">&#39;+.225&#39;</span><span class="o">|</span><span class="nf">relativesize</span><span class="o">(</span><span class="s1">&#39;em&#39;</span><span class="o">)</span><span class="cp">}}</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">h4</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="cp">{{</span><span class="s1">&#39;+.15&#39;</span><span class="o">|</span><span class="nf">relativesize</span><span class="o">(</span><span class="s1">&#39;em&#39;</span><span class="o">)</span><span class="cp">}}</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">h5</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="cp">{{</span><span class="s1">&#39;+.075&#39;</span><span class="o">|</span><span class="nf">relativesize</span><span class="o">(</span><span class="s1">&#39;em&#39;</span><span class="o">)</span><span class="cp">}}</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">h6</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="cp">{{</span><span class="s1">&#39;+0&#39;</span><span class="o">|</span><span class="nf">relativesize</span><span class="o">(</span><span class="s1">&#39;em&#39;</span><span class="o">)</span><span class="cp">}}</span><span class="p">;</span> <span class="p">}</span>
+</pre></div>
+
+
+<p>Would become this (assuming a font size of 12pt):</p>
+<div class="codehilite"><pre><span></span><span class="nt">h1</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="m">1.625em</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">h2</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="m">1.55em</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">h3</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="m">1.475em</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">h4</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="m">1.4em</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">h5</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="m">1.325em</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">h6</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="m">1.25em</span><span class="p">;</span> <span class="p">}</span>
+</pre></div>
+
+
+<div class="admonition hint">
+<p class="admonition-title">New</p>
+<p>Added in <code>1.7.0</code>.</p>
+</div>
+</dd>
+</dl>
 <h3 id="template-colors"><a name="user-content-template-colors" href="#template-colors" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Template Colors</h3>
 <p>With the template environment, colors from the current Sublime color scheme can be accessed and manipulated.  Access to the Sublime color scheme styles are done via the <code>css</code> filter.</p>
 <dl>
