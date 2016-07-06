@@ -1481,7 +1481,7 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 <dl>
 <dt>relativesize</dt>
 <dd>
-<p>Takes a relative specifier and inserts the size in the provided unit relative to the font size in the current Sublime Text file view. The filter is applied to a string that consists of a leading relative operator <code>+</code>, <code>-</code>, or <code>*</code> and then a positive number.  The <code>relativesize</code> call takes the type <code>em</code>, <code>px</code>, or <code>pt</code>.</p>
+<p>Takes a relative specifier and inserts the size in the provided unit relative to the font size in the current Sublime Text file view. The filter is applied to a string that consists of a leading relative operator (<code>+</code>, <code>-</code>, or <code>*</code>), a positive number, and one of three size types (<code>em</code>, <code>px</code>, or <code>pt</code>): <code class="codehilite"><span class="cp">{{</span><span class="s1">&#39;+.375em&#39;</span><span class="o">|</span><span class="nf">relativesize</span><span class="cp">}}</span></code>.</p>
 <table>
 <thead>
 <tr>
@@ -1505,22 +1505,22 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 </tbody>
 </table>
 <p><strong>Example</strong>:</p>
-<div class="codehilite"><pre><span></span><span class="nt">h1</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="cp">{{</span><span class="s1">&#39;+.375&#39;</span><span class="o">|</span><span class="nf">relativesize</span><span class="o">(</span><span class="s1">&#39;em&#39;</span><span class="o">)</span><span class="cp">}}</span><span class="p">;</span> <span class="p">}</span>
-<span class="nt">h2</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="cp">{{</span><span class="s1">&#39;+.3&#39;</span><span class="o">|</span><span class="nf">relativesize</span><span class="o">(</span><span class="s1">&#39;em&#39;</span><span class="o">)</span><span class="cp">}}</span><span class="p">;</span> <span class="p">}</span>
-<span class="nt">h3</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="cp">{{</span><span class="s1">&#39;+.225&#39;</span><span class="o">|</span><span class="nf">relativesize</span><span class="o">(</span><span class="s1">&#39;em&#39;</span><span class="o">)</span><span class="cp">}}</span><span class="p">;</span> <span class="p">}</span>
-<span class="nt">h4</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="cp">{{</span><span class="s1">&#39;+.15&#39;</span><span class="o">|</span><span class="nf">relativesize</span><span class="o">(</span><span class="s1">&#39;em&#39;</span><span class="o">)</span><span class="cp">}}</span><span class="p">;</span> <span class="p">}</span>
-<span class="nt">h5</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="cp">{{</span><span class="s1">&#39;+.075&#39;</span><span class="o">|</span><span class="nf">relativesize</span><span class="o">(</span><span class="s1">&#39;em&#39;</span><span class="o">)</span><span class="cp">}}</span><span class="p">;</span> <span class="p">}</span>
-<span class="nt">h6</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="cp">{{</span><span class="s1">&#39;+0&#39;</span><span class="o">|</span><span class="nf">relativesize</span><span class="o">(</span><span class="s1">&#39;em&#39;</span><span class="o">)</span><span class="cp">}}</span><span class="p">;</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nt">h1</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="cp">{{</span><span class="s1">&#39;+5px&#39;</span><span class="o">|</span><span class="nf">relativesize</span><span class="cp">}}</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">h2</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="cp">{{</span><span class="s1">&#39;+4px&#39;</span><span class="o">|</span><span class="nf">relativesize</span><span class="cp">}}</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">h3</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="cp">{{</span><span class="s1">&#39;+3px&#39;</span><span class="o">|</span><span class="nf">relativesize</span><span class="cp">}}</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">h4</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="cp">{{</span><span class="s1">&#39;+2px&#39;</span><span class="o">|</span><span class="nf">relativesize</span><span class="cp">}}</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">h5</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="cp">{{</span><span class="s1">&#39;+1px&#39;</span><span class="o">|</span><span class="nf">relativesize</span><span class="cp">}}</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">h6</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="cp">{{</span><span class="s1">&#39;+0px&#39;</span><span class="o">|</span><span class="nf">relativesize</span><span class="cp">}}</span><span class="p">;</span> <span class="p">}</span>
 </pre></div>
 
 
-<p>Would become this (assuming a font size of 12pt):</p>
-<div class="codehilite"><pre><span></span><span class="nt">h1</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="m">1.625em</span><span class="p">;</span> <span class="p">}</span>
-<span class="nt">h2</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="m">1.55em</span><span class="p">;</span> <span class="p">}</span>
-<span class="nt">h3</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="m">1.475em</span><span class="p">;</span> <span class="p">}</span>
-<span class="nt">h4</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="m">1.4em</span><span class="p">;</span> <span class="p">}</span>
-<span class="nt">h5</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="m">1.325em</span><span class="p">;</span> <span class="p">}</span>
-<span class="nt">h6</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="m">1.25em</span><span class="p">;</span> <span class="p">}</span>
+<p>Would become this (assuming a font size of 19px):</p>
+<div class="codehilite"><pre><span></span><span class="nt">h1</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="m">24px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">h2</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="m">23px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">h3</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="m">22px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">h4</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="m">21px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">h5</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="m">20px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">h6</span> <span class="p">{</span> <span class="nb">font-size</span><span class="o">:</span> <span class="m">19px</span><span class="p">;</span> <span class="p">}</span>
 </pre></div>
 
 
