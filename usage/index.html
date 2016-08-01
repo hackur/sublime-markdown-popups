@@ -186,8 +186,8 @@
 
 
 <h2 id="markdown-support"><a name="user-content-markdown-support" href="#markdown-support" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Markdown Support</h2>
-<p>MdPopups uses <a href="https://pythonhosted.org/Markdown/">Python Markdown</a> to parse Markdown and transform it into a tooltip or a phantom (HTML embedded in your file view).  The Markdown environment supports basic Markdown features, but also includes a number of specialty extensions to enhance the environment.  To keep the experience standardized for plugin use, tweaking the Markdown settings is not allowed.</p>
-<p>MdPopups enables the following Python Markdown extensions:</p>
+<p>MdPopups uses <a href="https://pythonhosted.org/Markdown/">Python Markdown</a> to parse Markdown and transform it into a tooltip or a phantom (HTML embedded in your file view).  The Markdown environment supports basic Markdown features, but also includes a number of specialty extensions to enhance the environment.  To keep the experience standardized for plugin use, tweaking the Markdown settings is not allowed except for <code>nl2br</code> as it is not critical and can actually get in the way of formatting the Markdown if not desired.</p>
+<p>MdPopups includes the following Python Markdown extensions:</p>
 <ul>
 <li><a href="https://pythonhosted.org/Markdown/extensions/attr_list.html">attr_list</a> allows you to add HTML attributes to block and inline elements easily.</li>
 <li><a href="https://pythonhosted.org/Markdown/extensions/nl2br.html">nl2br</a> turns new lines int <code class="codehilite"><span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span></code> tags.</li>
@@ -202,6 +202,10 @@
 <li><a href="http://facelessuser.github.io/pymdown-extensions/extensions/magiclink/">magiclink</a> auto links HTML links.</li>
 <li><a href="http://facelessuser.github.io/pymdown-extensions/extensions/inlinehilite/">inlinehilite</a> allows for inline code highlighting: <code>`#!python import module`</code> &rarr; <code class="codehilite"><span class="kn">import</span> <span class="nn">module</span></code>.</li>
 </ul>
+<div class="admonition hint">
+<p class="admonition-title">New 1.9.0</p>
+<p><code>nl2br</code> can be turned off via the <code>nl2br</code> parameter in <code>show_popup</code>, <code>add_phantom</code>, <code>update_popup</code>, <code>md2html</code>, and <code>Phantom</code>.</p>
+</div>
 <h2 id="api-usage"><a name="user-content-api-usage" href="#api-usage" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>API Usage</h2>
 <p>MdPopups provides a handful of accessible functions.</p>
 <h3 id="version"><a name="user-content-version" href="#version" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>version</h3>
@@ -295,12 +299,40 @@
 <td>None</td>
 <td>Callback for when the tooltip is hidden.</td>
 </tr>
+<tr>
+<td>wrapper_class</td>
+<td>string</td>
+<td>No</td>
+<td>None</td>
+<td>A string containing the class name you wish wrap your content in.  A <code>div</code> will be created with the given class.</td>
+</tr>
+<tr>
+<td>template_vars</td>
+<td>dict</td>
+<td>No</td>
+<td>None</td>
+<td>A dictionary containing template vars.  These can be used in either the CSS or the HTML/Markdown content.</td>
+</tr>
+<tr>
+<td>template_env_options</td>
+<td>dict</td>
+<td>No</td>
+<td>None</td>
+<td>A dictionary containing options for the Jinja2 template environment. This <strong>only</strong> applies to the <strong>HTML/Markdown</strong> content. Content plugin vars are found under the object: <code>plugin</code>.</td>
+</tr>
+<tr>
+<td>nl2br</td>
+<td>bool</td>
+<td>No</td>
+<td>True</td>
+<td>Determines whether the newline to br Python Markdown extension is enabled or not.</td>
+</tr>
 </tbody>
 </table>
 <div class="admonition caution">
 <p class="admonition-title">Developers Guidelines</p>
-<p>If injecting your own CSS classes from a plugin, please namespace them by either giving them a very unique name (preferably with the plugin&rsquo;s name as part of the class) or use an additional namespace class (preferably with the plugin&rsquo;s name) and a specific class.  This way a user can target and override your class styling if desired.</p>
-</div>
+<p>For 3119+, it is advised you use the <code>wrapper_class</code> option to wrap your content in a div with the give class.  That way you can provide CSS to style your elements via <code class="codehilite"><span class="nc">.wrapper-class</span> <span class="nc">.myclass</span> <span class="p">{}</span></code>.</p>
+<p>For &lt;3119, when injecting your own CSS classes from a plugin, please namespace them by either giving them a very unique name (preferably with the plugin&rsquo;s name as part of the class) or use an additional namespace class (preferably with the plugin&rsquo;s name) and a specific class.  This way a user can target and override your class styling if desired.</p>
 <p><strong>Example - Unique Class Name</strong>:<br />
 <div class="codehilite"><pre><span></span><span class="nc">.myplugin-myclass</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
 </pre></div>
@@ -310,6 +342,11 @@
 </pre></div>
 </p>
 <p>Also, do not try to override the style of existing base classes and elements with plugin injection, but use custom plugin classes so that you will only target what your plugin has specifically added special classes to.</p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">New 1.9.0</p>
+<p><code>wrapper_class</code>, <code>template_vars</code>, <code>template_env_options</code>, and <code>nl2br</code> option added in <code>1.9.0</code>.</p>
+</div>
 </dd>
 </dl>
 <h2 id="update_popup"><a name="user-content-update_popup" href="#update_popup" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>update_popup</h2>
@@ -356,8 +393,40 @@
 <td>None</td>
 <td>CSS text that should be used instead of loading a theme.</td>
 </tr>
+<tr>
+<td>wrapper_class</td>
+<td>string</td>
+<td>No</td>
+<td>None</td>
+<td>A string containing the class name you wish wrap your content in.  A <code>div</code> will be created with the given class.</td>
+</tr>
+<tr>
+<td>template_vars</td>
+<td>dict</td>
+<td>No</td>
+<td>None</td>
+<td>A dictionary containing template vars.  These can be used in either the CSS or the HTML/Markdown content.</td>
+</tr>
+<tr>
+<td>template_env_options</td>
+<td>dict</td>
+<td>No</td>
+<td>None</td>
+<td>A dictionary containing options for the Jinja2 template environment. This <strong>only</strong> applies to the <strong>HTML/Markdown</strong> content. Content plugin vars are found under the object: <code>plugin</code>.</td>
+</tr>
+<tr>
+<td>nl2br</td>
+<td>bool</td>
+<td>No</td>
+<td>True</td>
+<td>Determines whether the newline to br Python Markdown extension is enabled or not.</td>
+</tr>
 </tbody>
 </table>
+<div class="admonition hint">
+<p class="admonition-title">New 1.9.0</p>
+<p><code>wrapper_class</code>, <code>template_vars</code>, <code>template_env_options</code>, and <code>nl2br</code> option added in <code>1.9.0</code>.</p>
+</div>
 </dd>
 </dl>
 <h3 id="hide_popup"><a name="user-content-hide_popup" href="#hide_popup" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>hide_popup</h3>
@@ -491,12 +560,40 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 <td>None</td>
 <td>Callback that receives one variable <code>href</code>.</td>
 </tr>
+<tr>
+<td>wrapper_class</td>
+<td>string</td>
+<td>No</td>
+<td>None</td>
+<td>A string containing the class name you wish wrap your content in.  A <code>div</code> will be created with the given class.</td>
+</tr>
+<tr>
+<td>template_vars</td>
+<td>dict</td>
+<td>No</td>
+<td>None</td>
+<td>A dictionary containing template vars.  These can be used in either the CSS or the HTML/Markdown content.</td>
+</tr>
+<tr>
+<td>template_env_options</td>
+<td>dict</td>
+<td>No</td>
+<td>None</td>
+<td>A dictionary containing options for the Jinja2 template environment. This <strong>only</strong> applies to the <strong>HTML/Markdown</strong> content. Content plugin vars are found under the object: <code>plugin</code>.</td>
+</tr>
+<tr>
+<td>nl2br</td>
+<td>bool</td>
+<td>No</td>
+<td>True</td>
+<td>Determines whether the newline to br Python Markdown extension is enabled or not.</td>
+</tr>
 </tbody>
 </table>
 <div class="admonition caution">
 <p class="admonition-title">Developers Guidelines</p>
-<p>If injecting your own CSS classes from a plugin, please namespace them by either giving them a very unique name (preferably with the plugin&rsquo;s name as part of the class) or use an additional namespace class (preferably with the plugin&rsquo;s name) and a specific class.  This way a user can target and override your class styling if desired.</p>
-</div>
+<p>For 3119+, it is advised you use the <code>wrapper_class</code> option to wrap your content in a div with the give class.  That way you can provide CSS to style your elements via <code class="codehilite"><span class="nc">.wrapper-class</span> <span class="nc">.myclass</span> <span class="p">{}</span></code>.</p>
+<p>For &lt;3119, when injecting your own CSS classes from a plugin, please namespace them by either giving them a very unique name (preferably with the plugin&rsquo;s name as part of the class) or use an additional namespace class (preferably with the plugin&rsquo;s name) and a specific class.  This way a user can target and override your class styling if desired.</p>
 <p><strong>Example - Unique Class Name</strong>:<br />
 <div class="codehilite"><pre><span></span><span class="nc">.myplugin-myclass</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
 </pre></div>
@@ -506,6 +603,11 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 </pre></div>
 </p>
 <p>Also, do not try to override the style of existing base classes and elements with plugin injection, but use custom plugin classes so that you will only target what your plugin has specifically added special classes to.</p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">New 1.9.0</p>
+<p><code>wrapper_class</code>, <code>template_vars</code>, <code>template_env_options</code>, and <code>nl2br</code> option added in <code>1.9.0</code>.</p>
+</div>
 <div class="admonition hint">
 <p class="admonition-title">New 1.6.0</p>
 <p>Feature added in <code>1.6.0</code>.</p>
@@ -722,6 +824,34 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 <td>None</td>
 <td>Callback that receives one variable <code>href</code>.</td>
 </tr>
+<tr>
+<td>wrapper_class</td>
+<td>string</td>
+<td>No</td>
+<td>None</td>
+<td>A string containing the class name you wish wrap your content in.  A <code>div</code> will be created with the given class.</td>
+</tr>
+<tr>
+<td>template_vars</td>
+<td>dict</td>
+<td>No</td>
+<td>None</td>
+<td>A dictionary containing template vars.  These can be used in either the CSS or the HTML/Markdown content.</td>
+</tr>
+<tr>
+<td>template_env_options</td>
+<td>dict</td>
+<td>No</td>
+<td>None</td>
+<td>A dictionary containing options for the Jinja2 template environment. This <strong>only</strong> applies to the <strong>HTML/Markdown</strong> content. Content plugin vars are found under the object: <code>plugin</code>.</td>
+</tr>
+<tr>
+<td>nl2br</td>
+<td>bool</td>
+<td>No</td>
+<td>True</td>
+<td>Determines whether the newline to br Python Markdown extension is enabled or not.</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Attributes</strong></p>
@@ -731,8 +861,6 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 <th>Attribute</th>
 <th>Type</th>
 <th>Description</th>
-<th></th>
-<th></th>
 </tr>
 </thead>
 <tbody>
@@ -740,46 +868,58 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 <td>region</td>
 <td>sublime.Region</td>
 <td>Region in the view where the phantom should be inserted.</td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td>content</td>
 <td>string</td>
 <td>Markdown/HTML content to be used to create a phantom.</td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td>layout</td>
 <td>int</td>
 <td>How the HTML content should be inserted.  Acceptable values are: <code>sublime.LAYOUT_INLINE</code>, <code>sublime.LAYOUT_BLOCK</code>, and <code>sublime.LAYOUT_BELOW</code>.</td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td>md</td>
 <td>bool</td>
 <td>Defines whether the content is Markdown and needs to be converterted.</td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td>css</td>
 <td>string</td>
 <td>Additional CSS that will be injected.</td>
-<td></td>
-<td></td>
 </tr>
 <tr>
 <td>on_navigate</td>
 <td>function</td>
 <td>Callback that receives one variable <code>href</code>.</td>
-<td></td>
-<td></td>
+</tr>
+<tr>
+<td>wrapper_class</td>
+<td>string</td>
+<td>A string containing the class name you wish wrap your content in.  A <code>div</code> will be created with the given class.</td>
+</tr>
+<tr>
+<td>template_vars</td>
+<td>dict</td>
+<td>A dictionary containing template vars.  These can be used in either the CSS or the HTML/Markdown content.</td>
+</tr>
+<tr>
+<td>template_env_options</td>
+<td>dict</td>
+<td>A dictionary containing options for the Jinja2 template environment. This <strong>only</strong> applies to the <strong>HTML/Markdown</strong> content. Content plugin vars are found under the object: <code>plugin</code>.</td>
+</tr>
+<tr>
+<td>nl2br</td>
+<td>bool</td>
+<td>Determines whether the newline to br Python Markdown extension is enabled or not.</td>
 </tr>
 </tbody>
 </table>
+<div class="admonition hint">
+<p class="admonition-title">New 1.9.0</p>
+<p><code>wrapper_class</code>, <code>template_vars</code>, <code>template_env_options</code>, and <code>nl2br</code> option added in <code>1.9.0</code>.</p>
+</div>
 <div class="admonition hint">
 <p class="admonition-title">New 1.6.1</p>
 <p>Feature added in <code>1.6.1</code>.</p>
@@ -788,7 +928,7 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 </dl>
 <h3 id="class-phantomset"><a name="user-content-class-phantomset" href="#class-phantomset" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>class PhantomSet</h3>
 <dl>
-<dt>mdpopups.PhantomsSet</dt>
+<dt>mdpopups.PhantomSet</dt>
 <dd>
 <p>A class that allows you to update phantoms under the specified key.</p>
 <table>
@@ -820,7 +960,7 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 </table>
 <p><strong>Methods</strong></p>
 <dl>
-<dt>mdpopups.PhantomsSet.update</dt>
+<dt>mdpopups.PhantomSet.update</dt>
 <dd>
 <p>Update all the phantoms in the set with the given phantom list.</p>
 <table>
@@ -839,7 +979,7 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 <td>[<a href="#class-phantom">mdpopups.Phantom</a>]</td>
 <td>Yes</td>
 <td></td>
-<td>A list of mdpopup phantoms (don&rsquo;t use sublime.Phantoms).</td>
+<td>A list of mdpopup phantoms. <code>sublime.Phantom</code> will be converted to <code>mdpopups.Phantom</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -886,8 +1026,40 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 <td></td>
 <td>The markup code to be converted.</td>
 </tr>
+<tr>
+<td>wrapper_class</td>
+<td>string</td>
+<td>No</td>
+<td>None</td>
+<td>A string containing the class name you wish wrap your content in.  A <code>div</code> will be created with the given class.</td>
+</tr>
+<tr>
+<td>template_vars</td>
+<td>dict</td>
+<td>No</td>
+<td>None</td>
+<td>A dictionary containing template vars.  These can be used in either the CSS or the HTML/Markdown content.</td>
+</tr>
+<tr>
+<td>template_env_options</td>
+<td>dict</td>
+<td>No</td>
+<td>None</td>
+<td>A dictionary containing options for the Jinja2 template environment. This <strong>only</strong> applies to the <strong>HTML/Markdown</strong> content. Content plugin vars are found under the object: <code>plugin</code>.</td>
+</tr>
+<tr>
+<td>nl2br</td>
+<td>bool</td>
+<td>No</td>
+<td>True</td>
+<td>Determines whether the newline to br Python Markdown extension is enabled or not.</td>
+</tr>
 </tbody>
 </table>
+<div class="admonition hint">
+<p class="admonition-title">New 1.9.0</p>
+<p><code>wrapper_class</code>, <code>template_vars</code>, <code>template_env_options</code>, and <code>nl2br</code> option added in <code>1.9.0</code>.</p>
+</div>
 </dd>
 </dl>
 <h3 id="color_box"><a name="user-content-color_box" href="#color_box" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>color_box</h3>
@@ -1360,6 +1532,12 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 </pre></div>
 
 
+<h3 id="mdpopupsdefault_formatting"><a name="user-content-mdpopupsdefault_formatting" href="#mdpopupsdefault_formatting" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups.default_formatting</h3>
+<p>Controls whether mdpopups default formatting (contained in <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/css/base.css"><code>base.css</code></a>) will be applied or not.  There is no setting for <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/css/default.css"><code>default.css</code></a> as it can be overridden simply by creating your own mdpopups.css file in <code>Packages/User</code>.</p>
+<div class="admonition hint">
+<p class="admonition-title">New 1.9.0<p>Added in <code>1.9.0</code>.</p>
+</p>
+</div>
 <h3 id="mdpopupssublime_user_lang_map"><a name="user-content-mdpopupssublime_user_lang_map" href="#mdpopupssublime_user_lang_map" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups.sublime_user_lang_map</h3>
 <p>This is a special setting allowing the mapping of personal syntax languages which are not yet included or will not be included in the official mapping table.  You can either define your own new entry, or use the name of an existing entry to extend language keywords or syntax languages.  When extending, user keywords and languages will be cycled through first.</p>
 <div class="codehilite"><pre><span></span>    <span class="s1">&#39;mdpopups.sublime_user_lang_map&#39;</span><span class="o">:</span> <span class="p">{</span>
@@ -1387,8 +1565,21 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 <h2 id="syntax-highlighting"><a name="user-content-syntax-highlighting" href="#syntax-highlighting" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Syntax Highlighting</h2>
 <p>MdPopups has two syntax highlighting methods: one is Pygments, the other is Sublimes native syntax highlighters.  When developing a plugin, it is wise to test out both as a syntax mapping may be needed for the Sublime Syntax Highlighter; mappings can be added locally and/or to the main repository via pull requests.</p>
 <h3 id="pygments"><a name="user-content-pygments" href="#pygments" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Pygments</h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Sublime Text 3119 allows for parent and child class in the form <code class="codehilite"><span class="nc">.class1</span> <span class="nt">class2</span></code>.  If you are on 3119 or later, Pygments class will be formatted as <code class="codehilite"><span class="nc">.mdpopups</span> <span class="nc">.highight</span> <span class="nc">.class</span><span class="o">,</span> <span class="nc">.mdpopups</span> <span class="nc">.inline-highlight</span> <span class="nc">.class</span></code>.  Keep this in mind as you are reading.  The main thing you need to know is that you can customize the background and/or main font color by using the following for ST 3119+:</p>
+<div class="codehilite"><pre><span></span><span class="nc">.mdpopups</span> <span class="nc">.highlight</span><span class="o">,</span> <span class="nc">.mdpopups</span> <span class="nc">.inline-highlight</span> <span class="p">{</span> <span class="nb">background-color</span><span class="o">:</span> <span class="m">#f8f8f8</span><span class="p">;</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span>
+</pre></div>
+
+
+<p>Or for ST &lt;3199:</p>
+<div class="codehilite"><pre><span></span><span class="nc">.highlight</span><span class="o">,</span> <span class="nc">.inline-highlight</span> <span class="p">{</span> <span class="nb">background-color</span><span class="o">:</span> <span class="m">#f8f8f8</span><span class="p">;</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span>
+</pre></div>
+
+
+</div>
 <p>Pygments has a great variety of highlighters out of the box.  It also comes with a number of built-in color schemes that can be used.  Pygments themes are loaded up using the <a href="#css-templates">CSS template</a>.  You can either specify an existing one, paste your own in.  Due to the limitations of the Sublime HTML and CSS engine, you must format your personal Pygments them to work well.</p>
-<p>Traditionally Pygments CSS classes are given not only syntax classes applied to each span, but an overall class as assigned to the div wrapper as well.  For instance, a class for whitespace may look like this (where <code class="codehilite"><span class="nc">.highlight</span></code> is the div wrapper&rsquo;s class and <code class="codehilite"><span class="nc">.w</span></code> i the span&rsquo;s class):</p>
+<p>Traditionally Pygments CSS classes are given not only syntax classes applied to each span, but an overall class as assigned to a div wrapper as well.  For instance, a class for whitespace may look like this (where <code class="codehilite"><span class="nc">.highlight</span></code> is the div wrapper&rsquo;s class and <code class="codehilite"><span class="nc">.w</span></code> i the span&rsquo;s class):</p>
 <div class="codehilite"><pre><span></span><span class="nc">.highlight</span> <span class="nc">.w</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#cccccc</span> <span class="p">}</span> <span class="c">/* Text.Whitespace */</span>
 </pre></div>
 
@@ -1485,7 +1676,12 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 <p>Templates are used so that a user can easily tap into all the colors, color filters, and other useful logic to control their tooltips and phantoms in one place without having to hard code a specific CSS for a specific color scheme.  Even though a plugin can additionally insert new scopes on demand when calling the popup API, a user can override anything and everything by providing their own <a href="#mdpopupsuser_css">CSS template</a>.  The template is fairly powerful and flexible.</p>
 <h2 id="css-templates"><a name="user-content-css-templates" href="#css-templates" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CSS Templates</h2>
 <p>MdPoups provides a <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/css/base.css"><code>base.css</code></a> that formats the general look of the HTML elements (padding, size, etc.).  On top of that, it provides a <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/css/default.css"><code>default.css</code></a> template which applies more superficial styling such as colors, Pygments themes, etc.  It uses the Jinja2 template environment to give direct access to things like color scheme colors, names, and other useful information.  In general, <code>default.css</code> should provide most of what everyone <strong>needs</strong>.  But if you <strong>want</strong> greater control, you can create your own CSS template which MdPopups will use instead of <code>default.css</code>.</p>
+<p>All variables and filters below only apply the CSS, not the content.  The content only receives the variables <strong>you</strong> give it via <code>template_vars</code> and any options and filters you give it via the <code>template_env_options</code>.  The css will receive the variables fed in through <code>template_vars</code>, and in the case of CSS and content, both will place the plugin variables under the object <code>plugin</code>.</p>
 <h3 id="sizes-relative-to-views-font-size"><a name="user-content-sizes-relative-to-views-font-size" href="#sizes-relative-to-views-font-size" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Sizes Relative to View&rsquo;s Font Size</h3>
+<div class="admonition caution">
+<p class="admonition-title">Notice</p>
+<p>It is recommended moving forward (starting with mdpopups version 1.8.0 and SublimeText build 3119) to use <code>rem</code> units for relative sizes.  If you need to dynamically choose whether to use <code>rem</code> or  not, you can check the template variable <code>var.sublime_version</code>.</p>
+</div>
 <p>Sizes can be defined relative to the current Sublime file view&rsquo;s font size.  An example would be ensuring font sizes in a popup or phantom match the size of the font in the Sublime Text file view.  The sizes that can be adjusted are <code>pt</code>, <code>em</code>, <code>px</code>.</p>
 <dl>
 <dt>relativesize</dt>
@@ -1545,17 +1741,17 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 
 <p>The conversion factor between <strong>px</strong>, <strong>pt</strong>, and <strong>em</strong> is assummed to be 16px &rarr; 1em &rarr; 12pt.  Whether this is what sublime is actually doing is another question.  We assume that the Sublime <code>font_size</code> setting is in <strong>px</strong> as this has given the best overall feel.  <strong>em</strong> are not recommened for font sizes as I&rsquo;ve seen some strange behaviour when scaling <strong>em</strong> (even though the numbers seem to calculate correctly).  <strong>em</strong> issues may not exists with elements that are not font, but please report any issues you find.</p>
 <div class="admonition hint">
-<p class="admonition-title">New 1.7.0</p>
-<p>Added in <code>1.7.0</code>.</p>
-<p>This was the <code>1.7.0</code> format which was cumbersome: <code>{{'+5'|relativesize('px')}}</code>.  In <code>1.7.1</code>, it changed, but the old way is still supported.</p>
+<p class="admonition-title">New 1.7.2</p>
+<p>Integer rounded added in <code>1.7.2</code>.  Rounding not supported in old style call from <code>1.7.0</code>.</p>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">New 1.7.1</p>
 <p><code>1.7.1</code> introduced the more simple format of <code>{{'+5px'|relativesize}}</code>.  It is encouraged to adopt this format instead of <code>1.7.0</code> format as it will be removed in the future.</p>
 </div>
 <div class="admonition hint">
-<p class="admonition-title">New 1.7.2</p>
-<p>Integer rounded added in <code>1.7.2</code>.  Rounding not supported in old style call from <code>1.7.0</code>.</p>
+<p class="admonition-title">New 1.7.0</p>
+<p>Added in <code>1.7.0</code>.</p>
+<p>This was the <code>1.7.0</code> format which was cumbersome: <code>{{'+5'|relativesize('px')}}</code>.  In <code>1.7.1</code>, it changed, but the old way is still supported.</p>
 </div>
 </dd>
 </dl>
@@ -1572,10 +1768,11 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 
 
 <p>Might become this:</p>
-<div class="codehilite"><pre><span></span><span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#888888</span><span class="o">,</span> <span class="nb">font-style</span><span class="o">:</span> <span class="nb">italic</span> <span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#888888</span><span class="p">;</span> <span class="nb">font-style</span><span class="o">:</span> <span class="nb">italic</span><span class="p">;</span> <span class="p">}</span>
 </pre></div>
 
 
+<p>Notice that the format of insertion is <code>key: value;</code>.  You do not need a semicolon after.  If you add one, you may get multiple semicolons which may break some things.</p>
 <p>If you need to get at a specific CSS attribute, you can specify its name in the <code>css</code> filter (available attributes are <code>color</code>, <code>background-color</code>, <code>font-style</code>, and <code>font-weight</code>).</p>
 <p>This:</p>
 <div class="codehilite"><pre><span></span><span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">h4</span><span class="o">,</span> <span class="nt">h5</span><span class="o">,</span> <span class="nt">h6</span> <span class="p">{</span> <span class="cp">{{</span><span class="s1">&#39;.comment&#39;</span><span class="o">|</span><span class="nf">css</span><span class="o">(</span><span class="s1">&#39;color&#39;</span><span class="o">)</span><span class="cp">}}</span> <span class="p">}</span>
@@ -1724,6 +1921,46 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 <h2 id="template-variables"><a name="user-content-template-variables" href="#template-variables" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Template Variables</h2>
 <p>The template environment provides a couple of variables that can be used to conditionally alter the CSS output.  Variables are found under <code>var</code>.</p>
 <dl>
+<dt>var.sublime_version</dt>
+<dd>
+<p><code>sublime_version</code> contains the current SublimeText version.  This allows you conditionally handle CSS features that are specific to a SublimeText version.</p>
+<p><strong>Example</strong><br />
+<div class="codehilite"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">var.sublime_version</span> <span class="o">&gt;=</span> <span class="m">3119</span> <span class="cp">%}</span>
+<span class="nt">padding</span><span class="o">:</span> <span class="nt">0</span><span class="nc">.2rem</span><span class="o">;</span>
+<span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+<span class="nt">padding</span><span class="o">:</span> <span class="nt">0</span><span class="nc">.2em</span><span class="o">;</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+</pre></div>
+</p>
+<div class="admonition hint">
+<p class="admonition-title">New 1.8.0</p>
+<p>Added in <code>1.8.0</code>.</p>
+</div>
+</dd>
+<dt>var.mdpopups_version</dt>
+<dd>
+<p><code>mdpopups_version</code> contains the current mdpopup version which you can use in your CSS templates if needed.</p>
+<p><strong>Example</strong><br />
+<div class="codehilite"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">var.mdpopups_version</span> <span class="o">&gt;=</span> <span class="o">(</span><span class="m">1.9</span><span class="nv">.0</span><span class="o">)</span> <span class="cp">%}</span>
+<span class="c">/* do something */</span>
+<span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+<span class="c">/* do something else */</span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+</pre></div>
+</p>
+<div class="admonition hint">
+<p class="admonition-title">New 1.9.0</p>
+<p>Added in <code>1.9.0</code>.</p>
+</div>
+</dd>
+<dt>var.default_formatting</dt>
+<dd>
+<p>Flag specifying whether default formatting is being used.  See <a href="#mdpopupsdefault_formatting">mdpopups.default_formatting</a> for how to control this flag.  And see <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/css/base.css"><code>base.css</code></a> for an example of how it is used.</p>
+<div class="admonition hint">
+<p class="admonition-title">New 1.9.0</p>
+<p>Added in <code>1.9.0</code>.</p>
+</div>
+</dd>
 <dt>var.is_dark | var.is_light</dt>
 <dd>
 <p><code>is_dark</code> checks if the color scheme is a dark color scheme.  Alternatively, <code>is_light</code> checks if the color scheme is a light color scheme.</p>
@@ -1748,8 +1985,8 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 </pre></div>
 </p>
 <div class="admonition hint">
-<p class="admonition-title">New 1.6.0<p>Added in <code>1.6.0</code>.</p>
-</p>
+<p class="admonition-title">New 1.6.0</p>
+<p>Added in <code>1.6.0</code>.</p>
 </div>
 </dd>
 <dt>var.use_pygments</dt>
