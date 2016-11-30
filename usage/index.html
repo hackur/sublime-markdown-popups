@@ -74,10 +74,6 @@
                 
                     <li><a class="toctree-l4" href="#api-usage">API Usage</a></li>
                 
-                    <li><a class="toctree-l4" href="#update_popup">update_popup</a></li>
-                
-                    <li><a class="toctree-l4" href="#get_language_from_view">get_language_from_view</a></li>
-                
                     <li><a class="toctree-l4" href="#global-user-settings">Global User Settings</a></li>
                 
                     <li><a class="toctree-l4" href="#syntax-highlighting">Syntax Highlighting</a></li>
@@ -203,7 +199,22 @@
 <p><code>nl2br</code> can be turned off via the <code>nl2br</code> parameter in <code>show_popup</code>, <code>add_phantom</code>, <code>update_popup</code>, <code>md2html</code>, and <code>Phantom</code>.</p>
 </div>
 <h2 id="api-usage"><a name="user-content-api-usage" href="#api-usage" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>API Usage</h2>
-<p>MdPopups provides a handful of accessible functions.</p>
+<p>MdPopups provides a number of accessible functions.</p>
+<div class="admonition caution">
+<p class="admonition-title">Developer Guidelines</p>
+<p>Plugin developers should not try to override the style of existing base classes and elements with plugin injection, but they should use custom plugin classes so that only the specific special elements that must be handled uniquely for the plugin get targeted.  You should use very unique class names (preferably with the plugin&rsquo;s name as part of the class). This way a user can target and override your class styling if desired. There are a couple of ways to approach this.</p>
+<ul>
+<li>
+<p>For Sublime Text 3119+, it is advised to use the <code>wrapper_class</code> option of the <code>show_popup</code>, <code>update_popup</code>, and <code>add_phantom</code> commands to wrap your content in a div with the provided class.  That way the developer can provide CSS to style their specific elements via <code class="codehilite"><span class="nc">.mdpopups</span> <span class="nc">.myplugin-wrapper</span> <span class="nc">.myclass</span> <span class="p">{}</span></code> or simply <code class="codehilite"><span class="nc">.myplugin-wrapper</span> <span class="nc">.myclass</span> <span class="p">{}</span></code>. This is one of the easiest ways, but it is for 3119+ only.</p>
+</li>
+<li>
+<p>For Sublime Text &lt;3119, when injecting your own CSS classes from a plugin, wrapper classes won&rsquo;t work as Sublime didn&rsquo;t add CSS support for parent child classes until later. In this case, it is recommend you namespace your classes by appending the plugin name as a prefix so it can be targeted like this: <code class="codehilite"><span class="nc">.myplugin-myclass</span> <span class="p">{}</span></code>.  This will give your elements very unique classes that the user can target and override if they choose.</p>
+</li>
+<li>
+<p>To add classes to inline and some block markdown elements you can use the Python Markdown <a href="https://pythonhosted.org/Markdown/extensions/attr_list.html">attr_list extension syntax</a>.  This will work on inline elements and a number of block elements (though sometimes it can be difficult to target certain kinds of block elements).  If all else fails, you can insert raw HTML into your markdown and apply classes directly to the element.</p>
+</li>
+</ul>
+</div>
 <h3 id="version"><a name="user-content-version" href="#version" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>version</h3>
 <dl>
 <dt>(int,) mdpopups.version</dt>
@@ -325,27 +336,13 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition caution">
-<p class="admonition-title">Developers Guidelines</p>
-<p>For 3119+, it is advised you use the <code>wrapper_class</code> option to wrap your content in a div with the give class.  That way you can provide CSS to style your elements via <code class="codehilite"><span class="nc">.wrapper-class</span> <span class="nc">.myclass</span> <span class="p">{}</span></code>.</p>
-<p>For &lt;3119, when injecting your own CSS classes from a plugin, please namespace them by either giving them a very unique name (preferably with the plugin&rsquo;s name as part of the class) or use an additional namespace class (preferably with the plugin&rsquo;s name) and a specific class.  This way a user can target and override your class styling if desired.</p>
-<p><strong>Example - Unique Class Name</strong>:<br />
-<div class="codehilite"><pre><span></span><span class="nc">.myplugin-myclass</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
-</pre></div>
-</p>
-<p><strong>Example - Namespace Class</strong>:<br />
-<div class="codehilite"><pre><span></span><span class="nc">.myplugin.myclass</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
-</pre></div>
-</p>
-<p>Also, do not try to override the style of existing base classes and elements with plugin injection, but use custom plugin classes so that you will only target what your plugin has specifically added special classes to.</p>
-</div>
 <div class="admonition hint">
 <p class="admonition-title">New 1.9.0</p>
 <p><code>wrapper_class</code>, <code>template_vars</code>, <code>template_env_options</code>, and <code>nl2br</code> option added in <code>1.9.0</code>.</p>
 </div>
 </dd>
 </dl>
-<h2 id="update_popup"><a name="user-content-update_popup" href="#update_popup" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>update_popup</h2>
+<h3 id="update_popup"><a name="user-content-update_popup" href="#update_popup" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>update_popup</h3>
 <dl>
 <dt>mdpopups.update_popup</dt>
 <dd>
@@ -586,20 +583,6 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 </tr>
 </tbody>
 </table>
-<div class="admonition caution">
-<p class="admonition-title">Developers Guidelines</p>
-<p>For 3119+, it is advised you use the <code>wrapper_class</code> option to wrap your content in a div with the give class.  That way you can provide CSS to style your elements via <code class="codehilite"><span class="nc">.wrapper-class</span> <span class="nc">.myclass</span> <span class="p">{}</span></code>.</p>
-<p>For &lt;3119, when injecting your own CSS classes from a plugin, please namespace them by either giving them a very unique name (preferably with the plugin&rsquo;s name as part of the class) or use an additional namespace class (preferably with the plugin&rsquo;s name) and a specific class.  This way a user can target and override your class styling if desired.</p>
-<p><strong>Example - Unique Class Name</strong>:<br />
-<div class="codehilite"><pre><span></span><span class="nc">.myplugin-myclass</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
-</pre></div>
-</p>
-<p><strong>Example - Namespace Class</strong>:<br />
-<div class="codehilite"><pre><span></span><span class="nc">.myplugin.myclass</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
-</pre></div>
-</p>
-<p>Also, do not try to override the style of existing base classes and elements with plugin injection, but use custom plugin classes so that you will only target what your plugin has specifically added special classes to.</p>
-</div>
 <div class="admonition hint">
 <p class="admonition-title">New 1.9.0</p>
 <p><code>wrapper_class</code>, <code>template_vars</code>, <code>template_env_options</code>, and <code>nl2br</code> option added in <code>1.9.0</code>.</p>
@@ -1456,7 +1439,7 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 </table>
 </dd>
 </dl>
-<h2 id="get_language_from_view"><a name="user-content-get_language_from_view" href="#get_language_from_view" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>get_language_from_view</h2>
+<h3 id="get_language_from_view"><a name="user-content-get_language_from_view" href="#get_language_from_view" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>get_language_from_view</h3>
 <dl>
 <dt>mdpopups.get_language_from_view</dt>
 <dd>
@@ -1516,15 +1499,21 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 
 
 <h3 id="mdpopupsuser_css"><a name="user-content-mdpopupsuser_css" href="#mdpopupsuser_css" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups.user_css</h3>
-<p>Overrides the default CSS theme.  Value should be a relative path pointing to the CSS theme file: <code>Packages/User/my_custom_theme.css</code>.  Slashes should be forward slashes. By default, it will point to <code>Packages/User/mdpopups.css</code>.</p>
+<p>Overrides the default CSS theme.  Value should be a relative path pointing to the CSS theme file: <code>Packages/User/my_custom_theme.css</code>.  Slashes should be forward slashes. By default, it will point to <code>Packages/User/mdpopups.css</code>.  User CSS overrides all CSS: base, default, plugin, etc.</p>
 <div class="codehilite"><pre><span></span>    <span class="s2">&quot;mdpopups.use_sublime_highlighter&quot;</span><span class="o">:</span> <span class="s2">&quot;Packages/User/mdpopups.css&quot;</span>
 </pre></div>
 
 
 <h3 id="mdpopupsdefault_formatting"><a name="user-content-mdpopupsdefault_formatting" href="#mdpopupsdefault_formatting" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups.default_formatting</h3>
-<p>Controls whether mdpopups default formatting (contained in <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/css/base.css"><code>base.css</code></a>) will be applied or not.  There is no setting for <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/css/default.css"><code>default.css</code></a> as it can be overridden simply by creating your own mdpopups.css file in <code>Packages/User</code>.</p>
+<p>Controls whether mdpopups default formatting (contained in <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/css/base.css"><code>base.css</code></a>) will be applied or not.</p>
 <div class="admonition hint">
 <p class="admonition-title">New 1.9.0<p>Added in <code>1.9.0</code>.</p>
+</p>
+</div>
+<h3 id="mdpopupsdefault_style"><a name="user-content-mdpopupsdefault_style" href="#mdpopupsdefault_style" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups.default_style</h3>
+<p>Controls whether mdpopups default styling (contained in <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/css/default.css"><code>default.css</code></a>) will be applied or not.</p>
+<div class="admonition hint">
+<p class="admonition-title">New 1.13.0<p>Added in <code>1.13.0</code>.</p>
 </p>
 </div>
 <h3 id="mdpopupssublime_user_lang_map"><a name="user-content-mdpopupssublime_user_lang_map" href="#mdpopupssublime_user_lang_map" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>mdpopups.sublime_user_lang_map</h3>
@@ -1556,12 +1545,12 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 <h3 id="pygments"><a name="user-content-pygments" href="#pygments" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Pygments</h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Sublime Text 3119 allows for parent and child class in the form <code class="codehilite"><span class="nc">.class1</span> <span class="nt">class2</span></code>.  If you are on 3119 or later, Pygments class will be formatted as <code class="codehilite"><span class="nc">.mdpopups</span> <span class="nc">.highight</span> <span class="nc">.class</span><span class="o">,</span> <span class="nc">.mdpopups</span> <span class="nc">.inline-highlight</span> <span class="nc">.class</span></code>.  Keep this in mind as you are reading.  The main thing you need to know is that you can customize the background and/or main font color by using the following for ST 3119+:</p>
+<p>Sublime Text 3119 allows for parent and child class in the form <code class="codehilite"><span class="nc">.class1</span> <span class="nc">.class2</span></code>.  If you are on 3119 or later, Pygments class will be formatted as <code class="codehilite"><span class="nc">.mdpopups</span> <span class="nc">.highight</span> <span class="nc">.class</span><span class="o">,</span> <span class="nc">.mdpopups</span> <span class="nc">.inline-highlight</span> <span class="nc">.class</span></code>.  Keep this in mind as you are reading.  The main thing you need to know is that you can customize the background and/or main font color by using the following for ST 3119+:</p>
 <div class="codehilite"><pre><span></span><span class="nc">.mdpopups</span> <span class="nc">.highlight</span><span class="o">,</span> <span class="nc">.mdpopups</span> <span class="nc">.inline-highlight</span> <span class="p">{</span> <span class="nb">background-color</span><span class="o">:</span> <span class="m">#f8f8f8</span><span class="p">;</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span>
 </pre></div>
 
 
-<p>Or for ST &lt;3199:</p>
+<p>On ST &lt; 3119, you cannot use the parent and child classes, so the CSS is limited:</p>
 <div class="codehilite"><pre><span></span><span class="nc">.highlight</span><span class="o">,</span> <span class="nc">.inline-highlight</span> <span class="p">{</span> <span class="nb">background-color</span><span class="o">:</span> <span class="m">#f8f8f8</span><span class="p">;</span> <span class="nb">color</span><span class="o">:</span> <span class="m">#4d4d4c</span> <span class="p">}</span>
 </pre></div>
 
@@ -1664,8 +1653,12 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 <p>MdPopups provides a simple base CSS that styles the basic HTML tags that can be used in the Markdown parser.  On top of that it then parses your current Sublime color scheme and generates CSS that includes styling for all the <a href="../textmate_scopes/">standard TextMate scopes</a> (and only those listed scopes) found in your color scheme.  It then uses those scopes in a default template to highlight your tooltips and phantoms to match your current color scheme.</p>
 <p>Templates are used so that a user can easily tap into all the colors, color filters, and other useful logic to control their tooltips and phantoms in one place without having to hard code a specific CSS for a specific color scheme.  Even though a plugin can additionally insert new scopes on demand when calling the popup API, a user can override anything and everything by providing their own <a href="#mdpopupsuser_css">CSS template</a>.  The template is fairly powerful and flexible.</p>
 <h2 id="css-templates"><a name="user-content-css-templates" href="#css-templates" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>CSS Templates</h2>
-<p>MdPoups provides a <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/css/base.css"><code>base.css</code></a> that formats the general look of the HTML elements (padding, size, etc.).  On top of that, it provides a <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/css/default.css"><code>default.css</code></a> template which applies more superficial styling such as colors, Pygments themes, etc.  It uses the Jinja2 template environment to give direct access to things like color scheme colors, names, and other useful information.  In general, <code>default.css</code> should provide most of what everyone <strong>needs</strong>.  But if you <strong>want</strong> greater control, you can create your own CSS template which MdPopups will use instead of <code>default.css</code>.</p>
+<p>MdPoups provides a <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/css/base.css"><code>base.css</code></a> that formats the general look of the HTML elements (padding, size, etc.).  On top of that, it provides a <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/css/default.css"><code>default.css</code></a> template which applies more superficial styling such as colors, Pygments themes, etc.  It uses the Jinja2 template environment to give direct access to things like color scheme colors, names, and other useful information.  In general, <code>base.css</code> and <code>default.css</code> should provide most of what everyone <strong>needs</strong>.  But if you <strong>want</strong> greater control, you can create your own CSS template which MdPopups which will override anything in <code>base.css</code> and <code>default.css</code>.</p>
 <p>All variables and filters below only apply the CSS, not the content.  The content only receives the variables <strong>you</strong> give it via <code>template_vars</code> and any options and filters you give it via the <code>template_env_options</code>.  The css will receive the variables fed in through <code>template_vars</code>, and in the case of CSS and content, both will place the plugin variables under the object <code>plugin</code>.</p>
+<div class="admonition hint">
+<p class="admonition-title">New 1.13.0</p>
+<p>User CSS now overrides <code>base.css</code> and <code>default.css</code> instead of replacing <code>default.css</code>.  You can get the same effect as legacy by disabling <a href="#">default styling</a> and creating your own user CSS.</p>
+</div>
 <h3 id="sizes-relative-to-views-font-size"><a name="user-content-sizes-relative-to-views-font-size" href="#sizes-relative-to-views-font-size" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Sizes Relative to View&rsquo;s Font Size</h3>
 <div class="admonition caution">
 <p class="admonition-title">Notice</p>
@@ -1948,6 +1941,14 @@ Accepts Markdown and creates a Sublime phantom (embedded HTML in the file view).
 <div class="admonition hint">
 <p class="admonition-title">New 1.9.0</p>
 <p>Added in <code>1.9.0</code>.</p>
+</div>
+</dd>
+<dt>var.default_style</dt>
+<dd>
+<p>Flag specifying whether default styling is being used.  See <a href="#mdpopupsdefault_style">mdpopups.default_style</a> for how to control this flag.  And see <a href="https://github.com/facelessuser/sublime-markdown-popups/blob/master/css/default.css"><code>default.css</code></a> for an example of how it is used.</p>
+<div class="admonition hint">
+<p class="admonition-title">New 1.13.0</p>
+<p>Added in <code>1.13.0</code>.</p>
 </div>
 </dd>
 <dt>var.is_dark | var.is_light</dt>
